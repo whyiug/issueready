@@ -5,5 +5,8 @@ packages:
 allowBuilds:
   esbuild: true
 
+overrides:
+  qs: 6.15.2
+
 catalog:
   ajv: 8.20.0

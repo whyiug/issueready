@@ -10,7 +10,7 @@
   },
   "sharedConfigDigest": "sha256:3b9f01004db716aba439d4551a7a3ae7792aae960ab16db3ec247ed9bc19cca4",
   "reviewDigest": "sha256:bf913ebb5a34b8744c89b248b84a1a0e5f2f63dbaac3603c3050c92e259d7d9e",
-  "lockfileDigest": "sha256:a14028f65dd3a3fcaceac42aa84d663d9aef161e1c07c1a49d18a4f9e23a0145",
+  "lockfileDigest": "sha256:2b5ec91aa60af4be7e4d25f38c68ae1cebc8a8a02a133941b2fa3fd59c4318a6",
   "scopes": [
     {
       "name": "decision",
