@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/report/v1alpha1",
+  "title": "IssueReady report",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "evaluationId",
+    "source",
+    "snapshot",
+    "policy",
+    "engineLock",
+    "evaluationStatus",
+    "specVerdict",
+    "delegationDisposition",
+    "agentCapabilityProfile",
+    "supervisionProfile",
+    "taskType",
+    "dimensions",
+    "canonicalFindings",
+    "policyFindings",
+    "evaluationReasons",
+    "questions",
+    "splitDraft",
+    "usage",
+    "privacy",
+    "generatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0-alpha.1" },
+    "evaluationId": { "type": "string", "pattern": "^ir_[A-Za-z0-9_-]+$" },
+    "source": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "snapshot": {
+      "type": "object",
+      "required": ["digest", "truncated", "omittedBytes"],
+      "properties": {
+        "digest": { "$ref": "#/$defs/digest" },
+        "truncated": { "type": "boolean" },
+        "omittedBytes": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "required": ["digest"],
+      "properties": {
+        "digest": { "$ref": "#/$defs/digest" }
+      },
+      "additionalProperties": true
+    },
+    "engineLock": {
+      "type": "object",
+      "required": [
+        "coreVersion",
+        "ruleCatalogDigest",
+        "taskPackDigest",
+        "policyDigest",
+        "localeBundleDigest",
+        "semanticProfileDigest"
+      ],
+      "properties": {
+        "coreVersion": { "type": "string", "minLength": 1 },
+        "ruleCatalogDigest": { "$ref": "#/$defs/digest" },
+        "taskPackDigest": { "$ref": "#/$defs/digest" },
+        "policyDigest": { "$ref": "#/$defs/digest" },
+        "localeBundleDigest": { "$ref": "#/$defs/digest" },
+        "semanticProfileDigest": {
+          "oneOf": [{ "$ref": "#/$defs/digest" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": true
+    },
+    "evaluationStatus": { "enum": ["COMPLETE", "DEGRADED", "ERROR"] },
+    "specVerdict": {
+      "type": ["string", "null"],
+      "enum": ["READY", "NEEDS_INFO", "TOO_BROAD", null]
+    },
+    "delegationDisposition": {
+      "enum": ["CANDIDATE", "SUPERVISED", "HUMAN_ONLY", "UNKNOWN"]
+    },
+    "agentCapabilityProfile": { "type": "string", "minLength": 1 },
+    "supervisionProfile": { "type": "string", "minLength": 1 },
+    "taskType": {
+      "type": "object",
+      "required": ["id", "source", "attempts"],
+      "properties": {
+        "id": {
+          "enum": [
+            "generic",
+            "bug",
+            "feature",
+            "docs",
+            "dependency",
+            "refactor",
+            "test-ci",
+            "operations"
+          ]
+        },
+        "source": {
+          "enum": [
+            "NATIVE_ISSUE_TYPE",
+            "EXPLICIT_CONFIG",
+            "ISSUE_FORM",
+            "TRUSTED_LABEL",
+            "DETERMINISTIC_HINT",
+            "SEMANTIC_CLASSIFIER",
+            "FALLBACK"
+          ]
+        },
+        "attempts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/taskTypeAttempt" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "dimensions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dimension" }
+    },
+    "canonicalFindings": { "$ref": "#/$defs/findings" },
+    "policyFindings": { "$ref": "#/$defs/findings" },
+    "evaluationReasons": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "questions": {
+      "type": "array",
+      "maxItems": 5,
+      "items": { "type": "object" }
+    },
+    "splitDraft": { "type": ["object", "null"] },
+    "usage": {
+      "type": "object",
+      "required": ["providerCalls"],
+      "properties": {
+        "providerCalls": { "type": "integer", "minimum": 0 },
+        "semanticInputTokens": { "type": "integer", "minimum": 0 },
+        "semanticOutputTokens": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "privacy": {
+      "type": "object",
+      "required": ["quotesIncluded", "redacted"],
+      "properties": {
+        "quotesIncluded": { "type": "boolean" },
+        "redacted": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "generatedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "evaluationStatus": { "const": "ERROR" } },
+        "required": ["evaluationStatus"]
+      },
+      "then": {
+        "properties": {
+          "specVerdict": { "const": null },
+          "delegationDisposition": { "const": "UNKNOWN" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "evaluationStatus": { "const": "COMPLETE" } },
+        "required": ["evaluationStatus"]
+      },
+      "then": {
+        "properties": {
+          "specVerdict": { "enum": ["READY", "NEEDS_INFO", "TOO_BROAD"] }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true,
+  "$defs": {
+    "digest": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "taskTypeAttempt": {
+      "type": "object",
+      "required": ["source", "status", "taskType", "evidence"],
+      "properties": {
+        "source": {
+          "enum": [
+            "NATIVE_ISSUE_TYPE",
+            "EXPLICIT_CONFIG",
+            "ISSUE_FORM",
+            "TRUSTED_LABEL",
+            "DETERMINISTIC_HINT",
+            "SEMANTIC_CLASSIFIER",
+            "FALLBACK"
+          ]
+        },
+        "status": {
+          "enum": [
+            "MATCHED",
+            "ABSENT",
+            "UNMAPPED",
+            "AMBIGUOUS",
+            "INVALID",
+            "DISABLED"
+          ]
+        },
+        "taskType": {
+          "type": ["string", "null"],
+          "enum": [
+            "generic",
+            "bug",
+            "feature",
+            "docs",
+            "dependency",
+            "refactor",
+            "test-ci",
+            "operations",
+            null
+          ]
+        },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "dimension": {
+      "type": "object",
+      "required": ["dimension", "outcome", "applicableRuleIds"],
+      "properties": {
+        "dimension": { "type": "string", "minLength": 1 },
+        "outcome": {
+          "enum": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+        },
+        "applicableRuleIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}$"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceSpan": {
+      "type": "object",
+      "required": [
+        "document",
+        "startUtf16",
+        "endUtf16",
+        "lineStart",
+        "lineEnd",
+        "snapshotDigest"
+      ],
+      "properties": {
+        "document": { "type": "string", "minLength": 1 },
+        "startUtf16": { "type": "integer", "minimum": 0 },
+        "endUtf16": { "type": "integer", "minimum": 0 },
+        "lineStart": { "type": "integer", "minimum": 1 },
+        "lineEnd": { "type": "integer", "minimum": 1 },
+        "quote": { "type": "string", "maxLength": 512 },
+        "snapshotDigest": { "$ref": "#/$defs/digest" }
+      },
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "required": ["ruleId", "outcome", "source", "messageKey", "evidence"],
+      "properties": {
+        "ruleId": {
+          "type": "string",
+          "pattern": "^(?:IR-[A-Z]{3,5}-[0-9]{3}|LOCAL-[A-Z0-9_-]+)$"
+        },
+        "outcome": { "enum": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"] },
+        "source": { "enum": ["DETERMINISTIC", "SEMANTIC", "HYBRID", "POLICY"] },
+        "messageKey": { "type": "string", "minLength": 1 },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidenceSpan" }
+        },
+        "remediation": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "findings": { "type": "array", "items": { "$ref": "#/$defs/finding" } }
+  }
+}

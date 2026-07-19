@@ -1,0 +1,53 @@
+{
+  "id": "IR-POL-001",
+  "revision": 1,
+  "dimension": "delegation-policy",
+  "engine": "deterministic",
+  "messageKey": "rules.delegation-policy.repository-delegation-boundary",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "disposition-only",
+  "evidenceSources": [
+    "repository-policy:delegation-map",
+    "native-issue-type:mapped-policy",
+    "trusted-label:mapped-policy"
+  ],
+  "aggregation": {
+    "operator": "deterministic-evidence",
+    "sourcePriority": [
+      "repository-policy",
+      "native-issue-type",
+      "trusted-label"
+    ],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": {
+    "kind": "policy-mapped-disposition",
+    "allowedSources": [
+      "repository-policy",
+      "native-issue-type",
+      "trusted-label"
+    ]
+  },
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NONE",
+    "dispositionEffect": "POLICY_DEFINED"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NONE",
+    "dispositionEffect": "UNKNOWN"
+  }
+}

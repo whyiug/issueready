@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/rule-execution-fixture-catalog/v1alpha1",
+  "title": "IssueReady rule execution fixture catalog",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "fixtures"],
+  "properties": {
+    "schemaVersion": {
+      "const": "https://example.invalid/issueready/rule-execution-fixture-catalog/v1alpha1"
+    },
+    "kind": { "const": "RuleExecutionFixtureCatalog" },
+    "fixtures": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/fixture" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "outcome": {
+      "enum": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+    },
+    "taskType": {
+      "enum": [
+        "generic",
+        "bug",
+        "feature",
+        "docs",
+        "dependency",
+        "refactor",
+        "test-ci",
+        "operations"
+      ]
+    },
+    "signal": {
+      "type": "object",
+      "required": ["source", "outcome"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "outcome": { "$ref": "#/$defs/outcome" },
+        "hardPredicateProven": { "type": "boolean" },
+        "policyEffect": {
+          "enum": ["NONE", "CANDIDATE", "SUPERVISED", "HUMAN_ONLY", "UNKNOWN"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixture": {
+      "type": "object",
+      "required": [
+        "id",
+        "scenarioKind",
+        "ruleId",
+        "ruleRevision",
+        "taskType",
+        "taskPackRevision",
+        "signals",
+        "expected"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}:[A-Z0-9_.:-]+$"
+        },
+        "scenarioKind": {
+          "enum": [
+            "SINGLE_SOURCE_OUTCOME",
+            "ALTERNATE_SOURCE_OUTCOME",
+            "SAME_SOURCE_CONFLICT",
+            "UNREGISTERED_SOURCE",
+            "POLICY_EFFECT_INJECTION",
+            "HARD_PREDICATE_PRECEDENCE",
+            "ILLEGAL_HARD_PREDICATE"
+          ]
+        },
+        "ruleId": {
+          "type": "string",
+          "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}$"
+        },
+        "ruleRevision": { "type": "integer", "minimum": 1 },
+        "taskType": { "$ref": "#/$defs/taskType" },
+        "taskPackRevision": { "type": "integer", "minimum": 1 },
+        "signals": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/signal" }
+        },
+        "expected": {
+          "oneOf": [
+            { "$ref": "#/$defs/expectedResult" },
+            { "$ref": "#/$defs/expectedError" }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "expectedResult": {
+      "type": "object",
+      "required": ["kind", "outcome", "hardPredicateProven"],
+      "properties": {
+        "kind": { "const": "RESULT" },
+        "outcome": { "$ref": "#/$defs/outcome" },
+        "hardPredicateProven": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "expectedError": {
+      "type": "object",
+      "required": ["kind", "code"],
+      "properties": {
+        "kind": { "const": "ERROR" },
+        "code": {
+          "enum": [
+            "UNREGISTERED_SOURCE",
+            "POLICY_EFFECT_BOUNDARY",
+            "HARD_PREDICATE_BOUNDARY"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

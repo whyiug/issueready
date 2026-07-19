@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0-alpha.1",
+  "evaluationId": "ir_fixture_additive_001",
+  "source": { "kind": "local", "futureSourceHint": "ignored" },
+  "snapshot": {
+    "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "truncated": false,
+    "omittedBytes": 0
+  },
+  "policy": {
+    "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "engineLock": {
+    "coreVersion": "0.0.0",
+    "ruleCatalogDigest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "taskPackDigest": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "policyDigest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "localeBundleDigest": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "semanticProfileDigest": null
+  },
+  "evaluationStatus": "COMPLETE",
+  "specVerdict": "READY",
+  "delegationDisposition": "CANDIDATE",
+  "agentCapabilityProfile": "generic-coding-agent-v1",
+  "supervisionProfile": "maintainer-review-v1",
+  "taskType": { "id": "generic", "source": "FALLBACK", "attempts": [] },
+  "dimensions": [],
+  "canonicalFindings": [],
+  "policyFindings": [],
+  "evaluationReasons": [],
+  "questions": [],
+  "splitDraft": null,
+  "usage": { "providerCalls": 0 },
+  "privacy": { "quotesIncluded": false, "redacted": true },
+  "generatedAt": "2026-07-18T00:00:00Z",
+  "futureTopLevelField": { "readerMustIgnore": true }
+}

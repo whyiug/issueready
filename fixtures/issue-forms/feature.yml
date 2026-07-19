@@ -1,0 +1,20 @@
+name: Feature request
+description: Propose an observable product outcome
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      placeholder: What outcome should change?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: List observable completion conditions.
+    validations:
+      required: true

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/task-pack/v1alpha1",
+  "title": "IssueReady registered task pack manifest",
+  "type": "object",
+  "required": [
+    "apiVersion",
+    "kind",
+    "id",
+    "revision",
+    "displayNameKey",
+    "criteria",
+    "nonRequirements"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "https://example.invalid/issueready/task-pack/v1alpha1"
+    },
+    "kind": { "const": "TaskPack" },
+    "id": {
+      "enum": [
+        "generic",
+        "bug",
+        "feature",
+        "docs",
+        "dependency",
+        "refactor",
+        "test-ci",
+        "operations"
+      ]
+    },
+    "revision": { "type": "integer", "minimum": 1 },
+    "displayNameKey": {
+      "type": "string",
+      "pattern": "^task-packs\\.[a-z0-9-]+\\.name$"
+    },
+    "criteria": {
+      "type": "object",
+      "required": [
+        "mandatory",
+        "conditional",
+        "advisory",
+        "evaluation",
+        "disposition"
+      ],
+      "properties": {
+        "mandatory": { "$ref": "#/$defs/ruleIds" },
+        "conditional": { "$ref": "#/$defs/ruleIds" },
+        "advisory": { "$ref": "#/$defs/ruleIds" },
+        "evaluation": { "$ref": "#/$defs/ruleIds" },
+        "disposition": { "$ref": "#/$defs/ruleIds" }
+      },
+      "additionalProperties": false
+    },
+    "nonRequirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^task-packs\\.[a-z0-9-]+\\.non-requirements\\.[a-z0-9-]+$"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "ruleIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}$" }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "useUnknownInCatchVariables": true,
+    "verbatimModuleSyntax": true,
+    "isolatedDeclarations": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "paths": {
+      "@issueready/core": ["./packages/core/src/index.ts"],
+      "@issueready/decision": ["./packages/decision/src/index.ts"],
+      "@issueready/domain": ["./packages/domain/src/index.ts"],
+      "@issueready/github": ["./packages/github/src/index.ts"],
+      "@issueready/normalize": ["./packages/normalize/src/index.ts"],
+      "@issueready/policy": ["./packages/policy/src/index.ts"],
+      "@issueready/report": ["./packages/report/src/index.ts"],
+      "@issueready/rules": ["./packages/rules/src/index.ts"],
+      "@issueready/schema": ["./packages/schema/src/index.ts"],
+      "@issueready/snapshot": ["./packages/snapshot/src/index.ts"],
+      "@issueready/testkit": ["./packages/testkit/src/index.ts"]
+    },
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true
+  }
+}

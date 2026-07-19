@@ -1,0 +1,18 @@
+{
+  "apiVersion": "https://example.invalid/issueready/config/v1alpha1",
+  "kind": "IssueReadyPolicy",
+  "metadata": { "name": "legacy-canonical-knobs" },
+  "spec": {
+    "evaluationProfile": "baseline-v1",
+    "locale": "en",
+    "maxIndependentGoals": 3,
+    "crossRepositorySpec": "always-ready",
+    "owner": "platform-team",
+    "context": {
+      "includeCommentsFrom": ["issue-author", "owner"],
+      "maxInputBytes": 131072,
+      "fetchExternalLinks": false
+    },
+    "githubWrite": { "mode": "disabled" }
+  }
+}

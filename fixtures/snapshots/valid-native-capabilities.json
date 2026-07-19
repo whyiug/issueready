@@ -1,0 +1,146 @@
+{
+  "apiVersion": "https://example.invalid/issueready/snapshot/v1alpha1",
+  "kind": "IssueSnapshot",
+  "source": {
+    "kind": "github",
+    "owner": "community",
+    "repository": "project-renamed",
+    "number": 42,
+    "updatedAt": "2026-07-18T00:00:00Z",
+    "apiVersion": "2022-11-28",
+    "etag": "W/\"fixture\""
+  },
+  "content": {
+    "title": "Track native capability changes",
+    "body": "## Acceptance\n\nNative fields and relationships remain bounded.\n",
+    "labels": ["compatibility"],
+    "comments": [
+      {
+        "id": "comment-1",
+        "inclusion": "PERMISSION_FILTERED"
+      }
+    ],
+    "normalization": {
+      "document": "issue.body",
+      "source": "## Acceptance\n\nNative fields and relationships remain bounded.\n",
+      "sourceDigest": "sha256:ddea7c65cbb1fb85e79eb19f79ad0fca06b68afd54c46c306dad0b763760fd2e",
+      "headings": [
+        {
+          "depth": 2,
+          "text": "Acceptance",
+          "span": {
+            "document": "issue.body",
+            "startUtf16": 0,
+            "endUtf16": 13,
+            "lineStart": 1,
+            "lineEnd": 1
+          },
+          "sectionSpan": {
+            "document": "issue.body",
+            "startUtf16": 13,
+            "endUtf16": 63,
+            "lineStart": 1,
+            "lineEnd": 3
+          }
+        }
+      ],
+      "checklistItems": [],
+      "codeFences": [],
+      "links": []
+    }
+  },
+  "accessContext": {
+    "authorAssociation": "OWNER",
+    "includedCommentIds": ["comment-1"]
+  },
+  "native": {
+    "issueType": {
+      "id": "type-2",
+      "name": "Incident Renamed",
+      "state": "AVAILABLE"
+    },
+    "fields": [
+      {
+        "id": "field-visible",
+        "name": "Severity",
+        "dataType": "SINGLE_SELECT",
+        "value": "high",
+        "state": "AVAILABLE"
+      },
+      {
+        "id": "field-hidden",
+        "name": null,
+        "dataType": null,
+        "value": null,
+        "state": "UNAVAILABLE",
+        "reason": "PERMISSION_DENIED"
+      }
+    ],
+    "parent": {
+      "id": "issue-parent",
+      "repositoryNodeId": "repo-a",
+      "number": 1
+    },
+    "subIssues": [
+      {
+        "id": "issue-child",
+        "repositoryNodeId": "repo-b",
+        "number": 2,
+        "state": "OPEN"
+      }
+    ],
+    "blockedBy": [
+      {
+        "id": "issue-blocker",
+        "repositoryNodeId": "repo-a",
+        "number": 3
+      }
+    ],
+    "blocking": [
+      {
+        "id": "issue-blocked",
+        "repositoryNodeId": "repo-a",
+        "number": 4
+      }
+    ],
+    "capabilities": {
+      "issueTypes": {
+        "availability": "AVAILABLE",
+        "checkedBy": "GITHUB_GRAPHQL",
+        "reason": null
+      },
+      "fields": {
+        "availability": "UNKNOWN",
+        "checkedBy": "GITHUB_GRAPHQL",
+        "reason": "PARTIAL_RESPONSE"
+      },
+      "parent": {
+        "availability": "AVAILABLE",
+        "checkedBy": "GITHUB_GRAPHQL",
+        "reason": null
+      },
+      "subIssues": {
+        "availability": "AVAILABLE",
+        "checkedBy": "GITHUB_GRAPHQL",
+        "reason": null
+      },
+      "dependencies": {
+        "availability": "AVAILABLE",
+        "checkedBy": "GITHUB_GRAPHQL",
+        "reason": null
+      },
+      "references": {
+        "availability": "AVAILABLE",
+        "checkedBy": "GITHUB_REST",
+        "reason": null
+      }
+    },
+    "references": []
+  },
+  "integrity": {
+    "snapshotDigest": "sha256:78be1257dbf77216f5e10da07ee1cf29f4f4a19217a14b0a32f58a600d853401",
+    "evaluatedAt": "2026-07-18T00:00:00Z",
+    "truncated": false,
+    "omittedBytes": 0
+  }
+}

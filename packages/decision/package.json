@@ -1,0 +1,33 @@
+{
+  "name": "@issueready/decision",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Tri-axis readiness decisions and gates for IssueReady.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git",
+    "directory": "packages/decision"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@issueready/domain": "workspace:*"
+  }
+}

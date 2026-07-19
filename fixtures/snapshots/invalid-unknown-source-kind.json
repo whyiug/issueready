@@ -1,0 +1,71 @@
+{
+  "apiVersion": "https://example.invalid/issueready/snapshot/v1alpha1",
+  "kind": "IssueSnapshot",
+  "source": {
+    "kind": "gitlab",
+    "path": "issue.md",
+    "updatedAt": null
+  },
+  "content": {
+    "title": "Compatibility",
+    "body": "Body\n",
+    "labels": [],
+    "comments": [],
+    "normalization": {
+      "document": "issue.body",
+      "source": "Body\n",
+      "sourceDigest": "sha256:421dc617d921c24f41441973d8476605718a14a5c2228b8344cc1d6d816e8d39",
+      "headings": [],
+      "checklistItems": [],
+      "codeFences": [],
+      "links": []
+    }
+  },
+  "native": {
+    "issueType": null,
+    "fields": [],
+    "parent": null,
+    "subIssues": [],
+    "blockedBy": [],
+    "blocking": [],
+    "capabilities": {
+      "issueTypes": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      },
+      "fields": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      },
+      "parent": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      },
+      "subIssues": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      },
+      "dependencies": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      },
+      "references": {
+        "availability": "UNAVAILABLE",
+        "checkedBy": "LOCAL_SOURCE",
+        "reason": "SOURCE_NOT_APPLICABLE"
+      }
+    },
+    "references": []
+  },
+  "integrity": {
+    "snapshotDigest": "sha256:1926834508d18cc79e4e821b04b81c8d20b318ffe72a2a52550d226bb46488a1",
+    "evaluatedAt": "2026-07-18T00:00:00Z",
+    "truncated": false,
+    "omittedBytes": 0
+  }
+}

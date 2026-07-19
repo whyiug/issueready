@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "https://example.invalid/issueready/github-read-replay/v1alpha1",
+  "kind": "GithubReadReplayCatalog",
+  "fixtures": [
+    {
+      "id": "rest-pagination-etag-ok",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues?per_page=1",
+        "etag": "\"catalog-v1\""
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues?per_page=1",
+            "headers": {
+              "if-none-match": "\"catalog-v1\"",
+              "x-github-api-version": "2026-03-10"
+            }
+          },
+          "response": {
+            "status": 200,
+            "headers": {
+              "etag": "\"page-1\"",
+              "link": "<https://api.github.com/repos/acme/widgets/issues?per_page=1&page=2>; rel=\"next\"",
+              "x-ratelimit-limit": "5000",
+              "x-ratelimit-remaining": "4999",
+              "x-ratelimit-reset": "1784404800"
+            },
+            "body": [{ "id": 1 }],
+            "bodyBytes": 10
+          }
+        },
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues?per_page=1&page=2",
+            "headers": { "x-github-api-version": "2026-03-10" }
+          },
+          "response": {
+            "status": 200,
+            "headers": {
+              "etag": "\"page-2\"",
+              "x-ratelimit-limit": "5000",
+              "x-ratelimit-remaining": "4998",
+              "x-ratelimit-reset": "1784404800"
+            },
+            "body": [{ "id": 2 }],
+            "bodyBytes": 10
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "OK",
+        "reason": null,
+        "requests": 2,
+        "dataLength": 2,
+        "remaining": 4998,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-etag-not-modified",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": "\"catalog-v1\""
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues",
+            "headers": { "if-none-match": "\"catalog-v1\"" }
+          },
+          "response": {
+            "status": 304,
+            "headers": { "etag": "\"catalog-v1\"" },
+            "body": null,
+            "bodyBytes": 4
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "NOT_MODIFIED",
+        "reason": null,
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-permission-denied",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 403,
+            "headers": { "x-ratelimit-remaining": "41" },
+            "body": { "message": "denied" },
+            "bodyBytes": 20
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNAVAILABLE",
+        "reason": "PERMISSION_DENIED",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": 41,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-forbidden-rate-limited",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 403,
+            "headers": {
+              "x-ratelimit-remaining": "0",
+              "retry-after": "17"
+            },
+            "body": { "message": "rate limited" },
+            "bodyBytes": 26
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNKNOWN",
+        "reason": "RATE_LIMITED",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": 0,
+        "retryAfterSeconds": 17
+      }
+    },
+    {
+      "id": "rest-not-found",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 404,
+            "headers": {},
+            "body": { "message": "not found" },
+            "bodyBytes": 23
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNAVAILABLE",
+        "reason": "NOT_FOUND",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-conflict",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 409,
+            "headers": {},
+            "body": { "message": "conflict" },
+            "bodyBytes": 22
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNAVAILABLE",
+        "reason": "CONFLICT",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-invalid-request",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 422,
+            "headers": {},
+            "body": { "message": "invalid" },
+            "bodyBytes": 21
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNAVAILABLE",
+        "reason": "INVALID_REQUEST",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "rest-too-many-requests",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 429,
+            "headers": { "retry-after": "23" },
+            "body": { "message": "slow down" },
+            "bodyBytes": 23
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNKNOWN",
+        "reason": "RATE_LIMITED",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": 23
+      }
+    },
+    {
+      "id": "rest-server-error-no-retry",
+      "operation": {
+        "kind": "REST_COLLECTION",
+        "resource": "/repos/acme/widgets/issues",
+        "etag": null
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "GET",
+            "resource": "/repos/acme/widgets/issues"
+          },
+          "response": {
+            "status": 503,
+            "headers": {},
+            "body": { "message": "unavailable" },
+            "bodyBytes": 25
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNKNOWN",
+        "reason": "SERVER_ERROR",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": null,
+        "retryAfterSeconds": null
+      }
+    },
+    {
+      "id": "graphql-partial-response",
+      "operation": {
+        "kind": "GRAPHQL",
+        "query": "query Viewer { viewer { login } }",
+        "variables": {}
+      },
+      "entries": [
+        {
+          "request": {
+            "method": "POST",
+            "resource": "/graphql",
+            "body": "{\"query\":\"query Viewer { viewer { login } }\",\"variables\":{}}"
+          },
+          "response": {
+            "status": 200,
+            "headers": { "x-ratelimit-remaining": "4997" },
+            "body": {
+              "data": { "viewer": null },
+              "errors": [{ "type": "FORBIDDEN" }]
+            },
+            "bodyBytes": 56
+          }
+        }
+      ],
+      "expected": {
+        "outcome": "UNKNOWN",
+        "reason": "PARTIAL_RESPONSE",
+        "requests": 1,
+        "dataLength": null,
+        "remaining": 4997,
+        "retryAfterSeconds": null
+      }
+    }
+  ]
+}

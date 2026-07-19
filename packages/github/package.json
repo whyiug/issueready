@@ -1,0 +1,44 @@
+{
+  "name": "@issueready/github",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Bounded read-only GitHub adapters for IssueReady.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git",
+    "directory": "packages/github"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./read": {
+      "types": "./dist/read/index.d.ts",
+      "import": "./dist/read/index.js"
+    },
+    "./live": {
+      "types": "./dist/live/index.d.ts",
+      "import": "./dist/live/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@issueready/schema": "workspace:*"
+  },
+  "devDependencies": {
+    "@issueready/snapshot": "workspace:*"
+  }
+}

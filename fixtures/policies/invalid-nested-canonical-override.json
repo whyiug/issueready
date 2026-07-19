@@ -1,0 +1,23 @@
+{
+  "apiVersion": "https://example.invalid/issueready/config/v1alpha1",
+  "kind": "IssueReadyPolicy",
+  "metadata": { "name": "invalid-nested-override" },
+  "spec": {
+    "evaluationProfile": "baseline-v1",
+    "locale": "en",
+    "taskTypes": {
+      "nativeTypeMappings": {
+        "Bug": {
+          "pack": "bug",
+          "canonicalRules": { "IR-BUG-001": "advisory" }
+        }
+      }
+    },
+    "context": {
+      "includeCommentsFrom": ["issue-author"],
+      "maxInputBytes": 131072,
+      "fetchExternalLinks": false
+    },
+    "githubWrite": { "mode": "disabled" }
+  }
+}

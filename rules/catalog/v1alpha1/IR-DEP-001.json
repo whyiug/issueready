@@ -1,0 +1,37 @@
+{
+  "id": "IR-DEP-001",
+  "revision": 1,
+  "dimension": "dependency",
+  "engine": "hybrid",
+  "messageKey": "rules.dependency.dependency-contract",
+  "appliesTo": ["bug", "feature", "dependency", "refactor", "operations"],
+  "canonicalLevel": "conditional",
+  "evidenceSources": [
+    "native-relationships:dependencies",
+    "markdown-ast:dependency-reference",
+    "semantic-criterion:dependency-contract"
+  ],
+  "aggregation": {
+    "operator": "hard-facts-first-then-semantic-coverage",
+    "sourcePriority": [
+      "native-relationships",
+      "markdown-ast",
+      "semantic-criterion"
+    ],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": "none",
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

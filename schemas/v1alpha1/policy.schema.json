@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/policy/v1alpha1",
+  "title": "IssueReady repository policy",
+  "type": "object",
+  "required": ["apiVersion", "kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": {
+      "const": "https://example.invalid/issueready/config/v1alpha1"
+    },
+    "kind": { "const": "IssueReadyPolicy" },
+    "metadata": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,62}$" }
+      },
+      "additionalProperties": false
+    },
+    "spec": {
+      "type": "object",
+      "required": ["evaluationProfile", "locale", "context", "githubWrite"],
+      "properties": {
+        "evaluationProfile": {
+          "enum": [
+            "baseline-v1",
+            "balanced-v1",
+            "strict-supervised-v1",
+            "research-v1"
+          ]
+        },
+        "locale": { "type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$" },
+        "taskTypes": {
+          "type": "object",
+          "properties": {
+            "nativeTypeMappings": { "$ref": "#/$defs/taskTypeMappings" },
+            "issueFormMappings": { "$ref": "#/$defs/taskTypeMappings" },
+            "trustedLabelMappings": { "$ref": "#/$defs/taskTypeMappings" }
+          },
+          "additionalProperties": false
+        },
+        "localFindings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "messageKey", "match", "dispositionEffect"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^LOCAL-[A-Z][A-Z0-9_-]{2,63}$"
+              },
+              "messageKey": {
+                "type": "string",
+                "pattern": "^local-findings\\.[a-z0-9-]+$"
+              },
+              "match": {
+                "type": "object",
+                "properties": {
+                  "labelsAny": { "$ref": "#/$defs/nonEmptyStrings" },
+                  "nativeTypesAny": { "$ref": "#/$defs/nonEmptyStrings" },
+                  "pathPrefixesAny": { "$ref": "#/$defs/nonEmptyStrings" }
+                },
+                "minProperties": 1,
+                "additionalProperties": false
+              },
+              "dispositionEffect": { "enum": ["SUPERVISED", "HUMAN_ONLY"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "delegation": {
+          "type": "object",
+          "properties": {
+            "default": { "enum": ["CANDIDATE", "SUPERVISED", "HUMAN_ONLY"] },
+            "nativeTypeMappings": { "$ref": "#/$defs/dispositionMappings" },
+            "trustedLabelMappings": { "$ref": "#/$defs/dispositionMappings" }
+          },
+          "additionalProperties": false
+        },
+        "context": {
+          "type": "object",
+          "required": [
+            "includeCommentsFrom",
+            "maxInputBytes",
+            "fetchExternalLinks"
+          ],
+          "properties": {
+            "includeCommentsFrom": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": ["issue-author", "owner", "member", "collaborator"]
+              }
+            },
+            "maxInputBytes": {
+              "type": "integer",
+              "minimum": 1024,
+              "maximum": 1048576
+            },
+            "fetchExternalLinks": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "semantic": {
+          "type": "object",
+          "required": ["enabled"],
+          "properties": { "enabled": { "type": "boolean" } },
+          "additionalProperties": false
+        },
+        "suggestions": {
+          "type": "object",
+          "properties": {
+            "maxQuestions": { "type": "integer", "minimum": 0, "maximum": 5 },
+            "maxSplits": { "type": "integer", "minimum": 0, "maximum": 8 }
+          },
+          "additionalProperties": false
+        },
+        "githubWrite": {
+          "type": "object",
+          "required": ["mode"],
+          "properties": { "mode": { "const": "disabled" } },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "taskType": {
+      "enum": [
+        "generic",
+        "bug",
+        "feature",
+        "docs",
+        "dependency",
+        "refactor",
+        "test-ci",
+        "operations"
+      ]
+    },
+    "taskTypeMappings": {
+      "type": "object",
+      "propertyNames": { "type": "string", "minLength": 1, "maxLength": 100 },
+      "additionalProperties": { "$ref": "#/$defs/taskType" }
+    },
+    "dispositionMappings": {
+      "type": "object",
+      "propertyNames": { "type": "string", "minLength": 1, "maxLength": 100 },
+      "additionalProperties": { "enum": ["SUPERVISED", "HUMAN_ONLY"] }
+    },
+    "nonEmptyStrings": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 200 }
+    }
+  }
+}

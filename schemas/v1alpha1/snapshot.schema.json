@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/snapshot/v1alpha1",
+  "title": "Normalized issue snapshot",
+  "type": "object",
+  "required": [
+    "apiVersion",
+    "kind",
+    "source",
+    "content",
+    "native",
+    "integrity"
+  ],
+  "properties": {
+    "apiVersion": {
+      "const": "https://example.invalid/issueready/snapshot/v1alpha1"
+    },
+    "kind": { "const": "IssueSnapshot" },
+    "source": {
+      "oneOf": [
+        { "$ref": "#/$defs/githubSource" },
+        { "$ref": "#/$defs/localSource" }
+      ]
+    },
+    "content": {
+      "type": "object",
+      "required": ["title", "body", "labels", "comments", "normalization"],
+      "properties": {
+        "title": { "type": "string" },
+        "body": { "type": "string" },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "comments": { "type": "array", "items": { "type": "object" } },
+        "normalization": {
+          "$ref": "https://example.invalid/issueready/normalization/v1alpha1#/$defs/normalizedMarkdown"
+        }
+      },
+      "additionalProperties": false
+    },
+    "accessContext": {
+      "type": "object",
+      "description": "Permission and author-association envelope; excluded from snapshotDigest and forbidden as canonical feature input.",
+      "properties": {
+        "authorAssociation": {
+          "type": ["string", "null"],
+          "maxLength": 50
+        },
+        "includedCommentIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "native": {
+      "type": "object",
+      "required": [
+        "issueType",
+        "fields",
+        "parent",
+        "subIssues",
+        "blockedBy",
+        "blocking",
+        "capabilities",
+        "references"
+      ],
+      "properties": {
+        "issueType": { "type": ["object", "null"] },
+        "fields": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "type": "object" }
+        },
+        "parent": { "type": ["object", "null"] },
+        "subIssues": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "type": "object" }
+        },
+        "blockedBy": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "type": "object" }
+        },
+        "blocking": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "type": "object" }
+        },
+        "capabilities": {
+          "type": "object",
+          "required": [
+            "issueTypes",
+            "fields",
+            "parent",
+            "subIssues",
+            "dependencies",
+            "references"
+          ],
+          "properties": {
+            "issueTypes": { "$ref": "#/$defs/nativeCapability" },
+            "fields": { "$ref": "#/$defs/nativeCapability" },
+            "parent": { "$ref": "#/$defs/nativeCapability" },
+            "subIssues": { "$ref": "#/$defs/nativeCapability" },
+            "dependencies": { "$ref": "#/$defs/nativeCapability" },
+            "references": { "$ref": "#/$defs/nativeCapability" }
+          },
+          "additionalProperties": false
+        },
+        "references": {
+          "type": "array",
+          "maxItems": 100,
+          "items": { "$ref": "#/$defs/nativeReference" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "snapshotDigest",
+        "evaluatedAt",
+        "truncated",
+        "omittedBytes"
+      ],
+      "properties": {
+        "snapshotDigest": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "SHA-256 over canonical JSON excluding accessContext, integrity.snapshotDigest, and integrity.evaluatedAt."
+        },
+        "evaluatedAt": { "type": "string", "format": "date-time" },
+        "truncated": { "type": "boolean" },
+        "omittedBytes": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nativeCheck": {
+      "enum": ["GITHUB_REST", "GITHUB_GRAPHQL", "LOCAL_SOURCE"]
+    },
+    "nativeUnavailableReason": {
+      "enum": [
+        "PERMISSION_DENIED",
+        "NOT_FOUND",
+        "PLAN_UNAVAILABLE",
+        "API_UNSUPPORTED",
+        "SOURCE_NOT_APPLICABLE"
+      ]
+    },
+    "nativeUnknownReason": {
+      "enum": ["PARTIAL_RESPONSE", "TRANSIENT_ERROR"]
+    },
+    "nativeCapability": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["availability", "checkedBy", "reason"],
+          "properties": {
+            "availability": { "const": "AVAILABLE" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["availability", "checkedBy", "reason"],
+          "properties": {
+            "availability": { "const": "UNAVAILABLE" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "$ref": "#/$defs/nativeUnavailableReason" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["availability", "checkedBy", "reason"],
+          "properties": {
+            "availability": { "const": "UNKNOWN" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "$ref": "#/$defs/nativeUnknownReason" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "nativeReferenceTarget": {
+      "type": "string",
+      "pattern": "^(?:#[0-9]+|https://github\\.com/[^/\\s]+/[^/\\s]+/(?:issues|pull)/[0-9]+)$"
+    },
+    "nativeReferenceKind": { "enum": ["ISSUE", "PULL_REQUEST"] },
+    "nativeReference": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "target",
+            "kind",
+            "essential",
+            "availability",
+            "checkedBy",
+            "reason"
+          ],
+          "properties": {
+            "target": { "$ref": "#/$defs/nativeReferenceTarget" },
+            "kind": { "$ref": "#/$defs/nativeReferenceKind" },
+            "essential": { "type": "boolean" },
+            "availability": { "const": "AVAILABLE" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "target",
+            "kind",
+            "essential",
+            "availability",
+            "checkedBy",
+            "reason"
+          ],
+          "properties": {
+            "target": { "$ref": "#/$defs/nativeReferenceTarget" },
+            "kind": { "$ref": "#/$defs/nativeReferenceKind" },
+            "essential": { "type": "boolean" },
+            "availability": { "const": "UNAVAILABLE" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "$ref": "#/$defs/nativeUnavailableReason" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "target",
+            "kind",
+            "essential",
+            "availability",
+            "checkedBy",
+            "reason"
+          ],
+          "properties": {
+            "target": { "$ref": "#/$defs/nativeReferenceTarget" },
+            "kind": { "$ref": "#/$defs/nativeReferenceKind" },
+            "essential": { "type": "boolean" },
+            "availability": { "const": "UNKNOWN" },
+            "checkedBy": { "$ref": "#/$defs/nativeCheck" },
+            "reason": { "$ref": "#/$defs/nativeUnknownReason" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "githubSource": {
+      "type": "object",
+      "required": [
+        "kind",
+        "owner",
+        "repository",
+        "number",
+        "updatedAt",
+        "apiVersion"
+      ],
+      "properties": {
+        "kind": { "const": "github" },
+        "owner": { "type": "string", "minLength": 1 },
+        "repository": { "type": "string", "minLength": 1 },
+        "number": { "type": "integer", "minimum": 1 },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "apiVersion": { "type": "string", "minLength": 1 },
+        "etag": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "localSource": {
+      "type": "object",
+      "required": ["kind", "path", "updatedAt"],
+      "properties": {
+        "kind": { "const": "local" },
+        "path": { "type": "string", "minLength": 1 },
+        "updatedAt": { "type": ["string", "null"], "format": "date-time" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

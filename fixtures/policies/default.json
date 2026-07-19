@@ -1,0 +1,21 @@
+{
+  "apiVersion": "https://example.invalid/issueready/config/v1alpha1",
+  "kind": "IssueReadyPolicy",
+  "metadata": { "name": "default" },
+  "spec": {
+    "evaluationProfile": "baseline-v1",
+    "locale": "en",
+    "context": {
+      "includeCommentsFrom": [
+        "issue-author",
+        "owner",
+        "member",
+        "collaborator"
+      ],
+      "maxInputBytes": 131072,
+      "fetchExternalLinks": false
+    },
+    "suggestions": { "maxQuestions": 5, "maxSplits": 8 },
+    "githubWrite": { "mode": "disabled" }
+  }
+}

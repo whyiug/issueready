@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/github-read-replay/v1alpha1",
+  "title": "GitHub read replay fixture catalog",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "fixtures"],
+  "properties": {
+    "schemaVersion": {
+      "const": "https://example.invalid/issueready/github-read-replay/v1alpha1"
+    },
+    "kind": { "const": "GithubReadReplayCatalog" },
+    "fixtures": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 100,
+      "items": { "$ref": "#/$defs/fixture" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "headers": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": { "type": "string", "maxLength": 100 },
+      "additionalProperties": { "type": "string", "maxLength": 8192 }
+    },
+    "request": {
+      "type": "object",
+      "required": ["method", "resource"],
+      "properties": {
+        "method": { "enum": ["GET", "POST"] },
+        "resource": {
+          "type": "string",
+          "pattern": "^/(?!/)[^#\\\\\\r\\n]+$",
+          "maxLength": 8192
+        },
+        "headers": { "$ref": "#/$defs/headers" },
+        "body": { "type": ["string", "null"], "maxLength": 1048576 }
+      },
+      "additionalProperties": false
+    },
+    "response": {
+      "type": "object",
+      "required": ["status", "headers", "body", "bodyBytes"],
+      "properties": {
+        "status": { "type": "integer", "minimum": 100, "maximum": 599 },
+        "headers": { "$ref": "#/$defs/headers" },
+        "body": {},
+        "bodyBytes": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 8388608
+        }
+      },
+      "additionalProperties": false
+    },
+    "entry": {
+      "type": "object",
+      "required": ["request", "response"],
+      "properties": {
+        "request": { "$ref": "#/$defs/request" },
+        "response": { "$ref": "#/$defs/response" }
+      },
+      "additionalProperties": false
+    },
+    "restOperation": {
+      "type": "object",
+      "required": ["kind", "resource", "etag"],
+      "properties": {
+        "kind": { "const": "REST_COLLECTION" },
+        "resource": {
+          "type": "string",
+          "pattern": "^/(?!/)[^#\\\\\\r\\n]+$",
+          "maxLength": 8192
+        },
+        "etag": { "type": ["string", "null"], "maxLength": 8192 }
+      },
+      "additionalProperties": false
+    },
+    "graphqlOperation": {
+      "type": "object",
+      "required": ["kind", "query", "variables"],
+      "properties": {
+        "kind": { "const": "GRAPHQL" },
+        "query": { "type": "string", "minLength": 1, "maxLength": 65536 },
+        "variables": { "type": "object", "maxProperties": 100 }
+      },
+      "additionalProperties": false
+    },
+    "expected": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "outcome",
+            "reason",
+            "requests",
+            "dataLength",
+            "remaining",
+            "retryAfterSeconds"
+          ],
+          "properties": {
+            "outcome": { "enum": ["OK", "NOT_MODIFIED"] },
+            "reason": { "type": "null" },
+            "requests": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "dataLength": { "type": ["integer", "null"], "minimum": 0 },
+            "remaining": { "type": ["integer", "null"], "minimum": 0 },
+            "retryAfterSeconds": {
+              "type": ["integer", "null"],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "outcome",
+            "reason",
+            "requests",
+            "dataLength",
+            "remaining",
+            "retryAfterSeconds"
+          ],
+          "properties": {
+            "outcome": { "const": "UNAVAILABLE" },
+            "reason": {
+              "enum": [
+                "PERMISSION_DENIED",
+                "NOT_FOUND",
+                "CONFLICT",
+                "INVALID_REQUEST",
+                "API_UNSUPPORTED"
+              ]
+            },
+            "requests": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "dataLength": { "type": ["integer", "null"], "minimum": 0 },
+            "remaining": { "type": ["integer", "null"], "minimum": 0 },
+            "retryAfterSeconds": {
+              "type": ["integer", "null"],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "outcome",
+            "reason",
+            "requests",
+            "dataLength",
+            "remaining",
+            "retryAfterSeconds"
+          ],
+          "properties": {
+            "outcome": { "const": "UNKNOWN" },
+            "reason": {
+              "enum": [
+                "RATE_LIMITED",
+                "SERVER_ERROR",
+                "PARTIAL_RESPONSE",
+                "PROTOCOL_ERROR",
+                "BOUNDS_EXCEEDED"
+              ]
+            },
+            "requests": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "dataLength": { "type": ["integer", "null"], "minimum": 0 },
+            "remaining": { "type": ["integer", "null"], "minimum": 0 },
+            "retryAfterSeconds": {
+              "type": ["integer", "null"],
+              "minimum": 0
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "fixture": {
+      "type": "object",
+      "required": ["id", "operation", "entries", "expected"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 100
+        },
+        "operation": {
+          "oneOf": [
+            { "$ref": "#/$defs/restOperation" },
+            { "$ref": "#/$defs/graphqlOperation" }
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 100,
+          "items": { "$ref": "#/$defs/entry" }
+        },
+        "expected": { "$ref": "#/$defs/expected" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,5096 @@
+{
+  "schemaVersion": "https://example.invalid/issueready/rule-execution-fixture-catalog/v1alpha1",
+  "kind": "RuleExecutionFixtureCatalog",
+  "fixtures": [
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:acceptance-candidate", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:acceptance-candidate", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:acceptance-candidate", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:acceptance-candidate",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observable-acceptance",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observable-acceptance",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observable-acceptance",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observable-acceptance",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "PASS" },
+        { "source": "issue-form-field:acceptance", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-form-field:acceptance",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-ACC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-001:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "issue-form-field:acceptance", "outcome": "PASS" },
+        {
+          "source": "issue-form-field:acceptance",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-ACC-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-ACC-002:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:goal-acceptance-alignment",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-form-field:observed", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-form-field:observed", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:observed", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:observed", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-form-field:expected", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-form-field:expected", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:expected", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:expected", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:observed-expected", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:observed-expected", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:observed-expected", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:observed-expected",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-3:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observed-expected-distinction",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-3:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observed-expected-distinction",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-3:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observed-expected-distinction",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SOURCE-3:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:observed-expected-distinction",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-form-field:observed", "outcome": "PASS" },
+        { "source": "issue-form-field:observed", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-form-field:observed",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-BUG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-001:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "issue-form-field:observed", "outcome": "PASS" },
+        {
+          "source": "issue-form-field:observed",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:reproduction", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:reproduction", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:reproduction", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "issue-form-field:reproduction",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "markdown-ast:reproduction", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "markdown-ast:reproduction", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:reproduction", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:reproduction", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:reproduction-or-constraint",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:reproduction-or-constraint",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:reproduction-or-constraint",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:reproduction-or-constraint",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-form-field:reproduction", "outcome": "PASS" },
+        { "source": "issue-form-field:reproduction", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-form-field:reproduction",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-BUG-002",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-BUG-002:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "issue-form-field:reproduction",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-COH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-COH-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:problem-scope-acceptance-validation-coherence",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:code-symbol-link", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:code-symbol-link", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:code-symbol-link", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:code-symbol-link",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-fields:mapped-component", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-fields:mapped-component", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-fields:mapped-component", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-fields:mapped-component",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "markdown-ast:code-symbol-link", "outcome": "PASS" },
+        { "source": "markdown-ast:code-symbol-link", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "markdown-ast:code-symbol-link",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "markdown-ast:code-symbol-link",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:environment", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:environment", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:environment", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "issue-form-field:environment",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "markdown-ast:environment", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "markdown-ast:environment", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:environment", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:environment", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:required-prerequisites",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:required-prerequisites",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:required-prerequisites",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:required-prerequisites",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-form-field:environment", "outcome": "PASS" },
+        { "source": "issue-form-field:environment", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-form-field:environment",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-002:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "issue-form-field:environment",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-context:availability", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-context:availability", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-context:availability", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "snapshot-context:availability",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:access-state", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:access-state", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:access-state", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "github-reference:access-state",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "snapshot-context:availability", "outcome": "PASS" },
+        { "source": "snapshot-context:availability", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "snapshot-context:availability",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-CTX-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-CTX-003:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "snapshot-context:availability", "outcome": "PASS" },
+        {
+          "source": "snapshot-context:availability",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-title:object-action", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-title:object-action", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-title:object-action", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-title:object-action", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-body:object-action", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "issue-body:object-action", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-body:object-action", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-body:object-action", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:concrete-work", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:concrete-work", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:concrete-work", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:concrete-work",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-title:object-action", "outcome": "PASS" },
+        { "source": "issue-title:object-action", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-title:object-action",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-001:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "issue-title:object-action", "outcome": "PASS" },
+        {
+          "source": "issue-title:object-action",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-002:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:independent-restatement",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:decisive-ambiguity", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:decisive-ambiguity", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:decisive-ambiguity",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:decisive-ambiguity",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:decisive-ambiguity",
+          "outcome": "PASS"
+        },
+        { "source": "semantic-criterion:decisive-ambiguity", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:decisive-ambiguity",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-003:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:decisive-ambiguity",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEF-004",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-DEF-004:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-source-contradiction",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:dependencies", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:dependencies", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:dependencies", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:dependencies",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:dependency-reference", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:dependency-reference", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:dependency-reference", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:dependency-reference",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:dependency-contract",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:dependency-contract",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:dependency-contract",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:dependency-contract",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "native-relationships:dependencies", "outcome": "PASS" },
+        { "source": "native-relationships:dependencies", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "native-relationships:dependencies",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-DEP-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-DEP-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "native-relationships:dependencies",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-EDG-001",
+      "ruleRevision": 1,
+      "taskType": "bug",
+      "taskPackRevision": 1,
+      "id": "IR-EDG-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:critical-edge-behavior",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:state", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:state", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:state", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:state", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "github-reference:state", "outcome": "PASS" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "github-reference:state", "outcome": "FAIL" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [{ "source": "github-reference:state", "outcome": "UNKNOWN" }],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:state", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:version-freshness", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:version-freshness", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:version-freshness",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:version-freshness",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "native-relationships:state", "outcome": "PASS" },
+        { "source": "native-relationships:state", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "native-relationships:state",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-FRESH-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-FRESH-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "native-relationships:state",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:validation", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:validation", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:validation", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "snapshot-integrity:validation",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:truncation", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:truncation", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:truncation", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "snapshot-integrity:truncation",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:coverage", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:coverage", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:coverage", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "snapshot-integrity:coverage", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "snapshot-integrity:validation", "outcome": "PASS" },
+        { "source": "snapshot-integrity:validation", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "snapshot-integrity:validation",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-INP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-INP-001:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "snapshot-integrity:validation", "outcome": "PASS" },
+        {
+          "source": "snapshot-integrity:validation",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-MIG-001",
+      "ruleRevision": 1,
+      "taskType": "feature",
+      "taskPackRevision": 1,
+      "id": "IR-MIG-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:migration-compatibility-boundary",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-PERF-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-PERF-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:performance-workload-measurement",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "repository-policy:delegation-map", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "repository-policy:delegation-map", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "repository-policy:delegation-map", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "repository-policy:delegation-map",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-issue-type:mapped-policy", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-issue-type:mapped-policy", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-issue-type:mapped-policy", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-issue-type:mapped-policy",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "trusted-label:mapped-policy", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "trusted-label:mapped-policy", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "trusted-label:mapped-policy", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "trusted-label:mapped-policy", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "repository-policy:delegation-map", "outcome": "PASS" },
+        { "source": "repository-policy:delegation-map", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-POL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-POL-001:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "repository-policy:delegation-map", "outcome": "PASS" },
+        {
+          "source": "repository-policy:delegation-map",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:goal-structure", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:goal-structure", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:goal-structure", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:goal-structure", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:children", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:children", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "native-relationships:children", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:children",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:primary-goal", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:primary-goal", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:primary-goal", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:primary-goal",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "markdown-ast:goal-structure", "outcome": "PASS" },
+        { "source": "markdown-ast:goal-structure", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "markdown-ast:goal-structure",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-SCP-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "markdown-ast:goal-structure",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:independent-goals", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:independent-goals", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:independent-goals", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:independent-goals",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:independent-children",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:independent-children",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:independent-children",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "native-relationships:independent-children",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:separable-goals", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:separable-goals", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "semantic-criterion:separable-goals", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:separable-goals",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "markdown-ast:independent-goals", "outcome": "PASS" },
+        { "source": "markdown-ast:independent-goals", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "markdown-ast:independent-goals",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-SCP-002",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-002:HARD-PREDICATE-PRECEDENCE",
+      "scenarioKind": "HARD_PREDICATE_PRECEDENCE",
+      "signals": [
+        { "source": "markdown-ast:independent-goals", "outcome": "PASS" },
+        {
+          "source": "markdown-ast:independent-goals",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": true
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "PASS"
+        },
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-SCP-003",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-SCP-003:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "semantic-criterion:cross-boundary-contract",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:internal-reference", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:internal-reference", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:internal-reference", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:internal-reference",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:resolution-state", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:resolution-state", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "github-reference:resolution-state", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "github-reference:resolution-state",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "markdown-ast:internal-reference", "outcome": "PASS" },
+        { "source": "markdown-ast:internal-reference", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "markdown-ast:internal-reference",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-TRC-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-TRC-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "markdown-ast:internal-reference",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-0:PASS",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:validation", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-0:FAIL",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:validation", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-0:UNKNOWN",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:validation", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-0:NOT_APPLICABLE",
+      "scenarioKind": "SINGLE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "issue-form-field:validation", "outcome": "NOT_APPLICABLE" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-1:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:validation-candidate", "outcome": "PASS" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-1:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:validation-candidate", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-1:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        { "source": "markdown-ast:validation-candidate", "outcome": "UNKNOWN" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-1:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "markdown-ast:validation-candidate",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-2:PASS",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:applicable-validation",
+          "outcome": "PASS"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "PASS",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-2:FAIL",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:applicable-validation",
+          "outcome": "FAIL"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "FAIL",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-2:UNKNOWN",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:applicable-validation",
+          "outcome": "UNKNOWN"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SOURCE-2:NOT_APPLICABLE",
+      "scenarioKind": "ALTERNATE_SOURCE_OUTCOME",
+      "signals": [
+        {
+          "source": "semantic-criterion:applicable-validation",
+          "outcome": "NOT_APPLICABLE"
+        }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "NOT_APPLICABLE",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:SAME-SOURCE-CONFLICT",
+      "scenarioKind": "SAME_SOURCE_CONFLICT",
+      "signals": [
+        { "source": "issue-form-field:validation", "outcome": "PASS" },
+        { "source": "issue-form-field:validation", "outcome": "FAIL" }
+      ],
+      "expected": {
+        "kind": "RESULT",
+        "outcome": "UNKNOWN",
+        "hardPredicateProven": false
+      }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:UNREGISTERED-SOURCE",
+      "scenarioKind": "UNREGISTERED_SOURCE",
+      "signals": [
+        { "source": "unregistered-source:fixture", "outcome": "PASS" }
+      ],
+      "expected": { "kind": "ERROR", "code": "UNREGISTERED_SOURCE" }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:POLICY-EFFECT-INJECTION",
+      "scenarioKind": "POLICY_EFFECT_INJECTION",
+      "signals": [
+        {
+          "source": "issue-form-field:validation",
+          "outcome": "PASS",
+          "policyEffect": "HUMAN_ONLY"
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "POLICY_EFFECT_BOUNDARY" }
+    },
+    {
+      "ruleId": "IR-VAL-001",
+      "ruleRevision": 1,
+      "taskType": "generic",
+      "taskPackRevision": 1,
+      "id": "IR-VAL-001:ILLEGAL-HARD-PREDICATE",
+      "scenarioKind": "ILLEGAL_HARD_PREDICATE",
+      "signals": [
+        {
+          "source": "issue-form-field:validation",
+          "outcome": "FAIL",
+          "hardPredicateProven": true
+        }
+      ],
+      "expected": { "kind": "ERROR", "code": "HARD_PREDICATE_BOUNDARY" }
+    }
+  ]
+}

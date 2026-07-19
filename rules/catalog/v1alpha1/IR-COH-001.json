@@ -1,0 +1,40 @@
+{
+  "id": "IR-COH-001",
+  "revision": 1,
+  "dimension": "coherence",
+  "engine": "semantic",
+  "messageKey": "rules.coherence.cross-dimension-coherence",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "mandatory",
+  "evidenceSources": [
+    "semantic-criterion:problem-scope-acceptance-validation-coherence"
+  ],
+  "aggregation": {
+    "operator": "semantic-criterion",
+    "sourcePriority": ["semantic-criterion"],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": "none",
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

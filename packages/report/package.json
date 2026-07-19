@@ -1,0 +1,42 @@
+{
+  "name": "@issueready/report",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Privacy-aware JSON and Markdown report generation for IssueReady.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git",
+    "directory": "packages/report"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@issueready/decision": "workspace:*",
+    "@issueready/domain": "workspace:*",
+    "@issueready/policy": "workspace:*",
+    "@issueready/rules": "workspace:*",
+    "@issueready/schema": "workspace:*",
+    "@issueready/snapshot": "workspace:*"
+  },
+  "devDependencies": {
+    "@issueready/testkit": "workspace:*",
+    "mdast-util-from-markdown": "2.0.3"
+  }
+}

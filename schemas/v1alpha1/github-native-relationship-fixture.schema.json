@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/github-native-relationship-fixture/v1alpha1",
+  "title": "GitHub native relationship fixture catalog",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "fixtures"],
+  "properties": {
+    "schemaVersion": {
+      "const": "https://example.invalid/issueready/github-native-relationship-fixture/v1alpha1"
+    },
+    "kind": { "const": "GithubNativeRelationshipFixtureCatalog" },
+    "fixtures": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 100,
+      "items": { "$ref": "#/$defs/fixture" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "maxLength": 100
+    },
+    "fixtureId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 100
+    },
+    "node": {
+      "type": "object",
+      "required": [
+        "issueNodeId",
+        "repositoryNodeId",
+        "owner",
+        "repository",
+        "number",
+        "state"
+      ],
+      "properties": {
+        "issueNodeId": { "$ref": "#/$defs/identifier" },
+        "repositoryNodeId": { "$ref": "#/$defs/identifier" },
+        "owner": { "$ref": "#/$defs/identifier" },
+        "repository": { "$ref": "#/$defs/identifier" },
+        "number": { "type": "integer", "minimum": 1 },
+        "state": { "enum": ["OPEN", "CLOSED"] }
+      },
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": ["kind", "from", "to"],
+      "properties": {
+        "kind": { "enum": ["SUB_ISSUE", "BLOCKS"] },
+        "from": { "$ref": "#/$defs/identifier" },
+        "to": { "$ref": "#/$defs/identifier" }
+      },
+      "additionalProperties": false
+    },
+    "chainRecipe": {
+      "type": "object",
+      "required": ["kind", "levels"],
+      "properties": {
+        "kind": { "const": "CHAIN" },
+        "levels": { "type": "integer", "minimum": 1, "maximum": 9 }
+      },
+      "additionalProperties": false
+    },
+    "fanoutRecipe": {
+      "type": "object",
+      "required": ["kind", "children"],
+      "properties": {
+        "kind": { "const": "FANOUT" },
+        "children": { "type": "integer", "minimum": 1, "maximum": 101 }
+      },
+      "additionalProperties": false
+    },
+    "explicitRecipe": {
+      "type": "object",
+      "required": ["kind", "rootIssueNodeId", "nodes", "edges"],
+      "properties": {
+        "kind": { "const": "EXPLICIT" },
+        "rootIssueNodeId": { "$ref": "#/$defs/identifier" },
+        "nodes": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 801,
+          "items": { "$ref": "#/$defs/node" }
+        },
+        "edges": {
+          "type": "array",
+          "maxItems": 1600,
+          "items": { "$ref": "#/$defs/edge" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "analysis": {
+      "type": "object",
+      "required": [
+        "hierarchyDepth",
+        "maxChildren",
+        "crossRepository",
+        "dependencyCycle",
+        "openNodes",
+        "closedNodes",
+        "hierarchyEdges",
+        "dependencyEdges"
+      ],
+      "properties": {
+        "hierarchyDepth": { "type": "integer", "minimum": 1, "maximum": 8 },
+        "maxChildren": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "crossRepository": { "type": "boolean" },
+        "dependencyCycle": { "type": "boolean" },
+        "openNodes": { "type": "integer", "minimum": 0, "maximum": 801 },
+        "closedNodes": { "type": "integer", "minimum": 0, "maximum": 801 },
+        "hierarchyEdges": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1600
+        },
+        "dependencyEdges": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1600
+        }
+      },
+      "additionalProperties": false
+    },
+    "validExpected": {
+      "type": "object",
+      "required": ["outcome", "analysis"],
+      "properties": {
+        "outcome": { "const": "OK" },
+        "analysis": { "$ref": "#/$defs/analysis" }
+      },
+      "additionalProperties": false
+    },
+    "invalidExpected": {
+      "type": "object",
+      "required": ["outcome", "reason"],
+      "properties": {
+        "outcome": { "const": "INVALID" },
+        "reason": {
+          "enum": [
+            "DUPLICATE_EDGE",
+            "CHILD_BOUND_EXCEEDED",
+            "HIERARCHY_CYCLE",
+            "HIERARCHY_DEPTH_EXCEEDED"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixture": {
+      "type": "object",
+      "required": ["id", "recipe", "expected"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fixtureId" },
+        "recipe": {
+          "oneOf": [
+            { "$ref": "#/$defs/chainRecipe" },
+            { "$ref": "#/$defs/fanoutRecipe" },
+            { "$ref": "#/$defs/explicitRecipe" }
+          ]
+        },
+        "expected": {
+          "oneOf": [
+            { "$ref": "#/$defs/validExpected" },
+            { "$ref": "#/$defs/invalidExpected" }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
