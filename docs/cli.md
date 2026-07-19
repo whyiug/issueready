@@ -5,10 +5,11 @@ writing to GitHub or executing coding agents.
 
 ## Install
 
-The current alpha is available from its versioned GitHub release:
+The current alpha is published on npm and mirrored in the versioned GitHub
+release:
 
 ```bash
-npm install --global https://github.com/whyiug/issueready/releases/download/v0.1.0/issueready-0.1.0.tgz
+npm install --global issueready@0.1.0
 issueready --version
 ```
 
