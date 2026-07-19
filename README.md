@@ -3,6 +3,7 @@
 ![IssueReady — know when an issue is ready to build](assets/social-preview.png)
 
 [![CI](https://github.com/whyiug/issueready/actions/workflows/ci.yml/badge.svg)](https://github.com/whyiug/issueready/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/issueready.svg)](https://www.npmjs.com/package/issueready)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
@@ -22,9 +23,8 @@ separate:
 Requirements: Node.js 24 and npm 11 or later.
 
 ```bash
-npm install --global https://github.com/whyiug/issueready/releases/download/v0.1.0/issueready-0.1.0.tgz
-issueready demo ready
-issueready demo needs-info
+npx issueready demo ready
+npx issueready demo needs-info
 ```
 
 ![IssueReady terminal demonstration](assets/terminal-demo.gif)
@@ -38,14 +38,14 @@ model or network service.
 Evaluate a local Markdown draft:
 
 ```bash
-issueready path/to/issue.md
+npx issueready path/to/issue.md
 ```
 
 Evaluate a public GitHub issue by URL or shorthand:
 
 ```bash
-issueready https://github.com/owner/repository/issues/123
-issueready owner/repository#123
+npx issueready https://github.com/owner/repository/issues/123
+npx issueready owner/repository#123
 ```
 
 Public issues work anonymously. For private issues or higher GitHub API rate
