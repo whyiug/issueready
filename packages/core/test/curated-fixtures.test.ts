@@ -265,7 +265,7 @@ describe("rights-explicit curated Issue behavior fixtures", () => {
     expect(catalog.rights).toMatchObject({
       rightsBasis: "project-authored-synthetic",
       rawTextIncluded: true,
-      annotationLicense: "project-license-pending",
+      annotationLicense: "MIT",
     });
     expect(catalog.semanticProfile.digest).toBe(
       digest({

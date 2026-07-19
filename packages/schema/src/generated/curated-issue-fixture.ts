@@ -66,9 +66,9 @@ export interface Rights {
      * @minItems 1
      */
     scope: [
-      "behavior-regression" | "future-publication-subject-to-project-license",
+      "behavior-regression" | "public-distribution-under-project-license",
       ...(
-        "behavior-regression" | "future-publication-subject-to-project-license"
+        "behavior-regression" | "public-distribution-under-project-license"
       )[],
     ];
   };
@@ -77,7 +77,7 @@ export interface Rights {
     reviewedAt: null;
     policyDigest: null;
   };
-  annotationLicense: "project-license-pending";
+  annotationLicense: "MIT";
   consent: {
     required: false;
     status: "not-applicable-synthetic";
@@ -93,7 +93,7 @@ export interface Rights {
   };
   deletion: {
     method: "remove-from-future-revisions";
-    contact: "private-repository-maintainer";
+    contact: "https://github.com/whyiug/issueready/issues";
     slaDays: null;
   };
   provenance: {

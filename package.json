@@ -1,6 +1,6 @@
 {
   "name": "issueready-workspace",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Local-first, evidence-backed readiness analysis for existing GitHub tasks.",
   "license": "MIT",
@@ -26,11 +26,14 @@
     "pnpm": ">=11.14.0 <12"
   },
   "scripts": {
+    "assets": "node scripts/render-assets.mjs",
+    "assets:check": "node scripts/render-assets.mjs --check",
     "build": "corepack pnpm -r --if-present build",
+    "cli": "corepack pnpm --filter issueready build && node packages/cli/dist/cli.js",
     "example": "corepack pnpm build && node examples/evaluate-local-issue.mjs",
-    "example:check": "node examples/evaluate-local-issue.mjs --check",
-    "format": "prettier --write package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
-    "format:check": "prettier --check package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
+    "example:check": "node examples/evaluate-local-issue.mjs --check && node packages/cli/dist/cli.js demo ready > /dev/null && node packages/cli/dist/cli.js demo needs-info > /dev/null",
+    "format": "prettier --write package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,md,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
+    "format:check": "prettier --check package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,md,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
     "generate:schema-types": "node scripts/generate-schema-types.mjs",
     "generate:schema-types:check": "node scripts/generate-schema-types.mjs --check",
     "generate:rule-catalog": "node scripts/generate-rule-catalog.mjs",
@@ -44,17 +47,21 @@
     "mutation:evidence:check": "node scripts/summarize-mutation.mjs --check",
     "mutation:policy": "stryker run mutation/stryker.policy.config.mjs",
     "mutation:redaction": "stryker run mutation/stryker.redaction.config.mjs",
+    "package:check": "node scripts/validate-package.mjs",
     "typecheck": "corepack pnpm -r --if-present typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
     "validate:json": "node scripts/validate-json.mjs",
     "validate:links": "node scripts/validate-markdown-links.mjs",
-    "validate": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm validate:json && corepack pnpm validate:links && corepack pnpm generate:schema-types:check && corepack pnpm generate:rule-catalog:check && corepack pnpm generate:rule-fixtures:check && corepack pnpm mutation:evidence:check && corepack pnpm typecheck && corepack pnpm test && corepack pnpm build && corepack pnpm example:check"
+    "validate": "corepack pnpm format:check && corepack pnpm assets:check && corepack pnpm lint && corepack pnpm validate:json && corepack pnpm validate:links && corepack pnpm generate:schema-types:check && corepack pnpm generate:rule-catalog:check && corepack pnpm generate:rule-fixtures:check && corepack pnpm mutation:evidence:check && corepack pnpm typecheck && corepack pnpm test && corepack pnpm build && corepack pnpm package:check && corepack pnpm example:check"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "@stryker-mutator/core": "9.6.1",
     "@types/node": "24.13.3",
+    "esbuild": "0.28.1",
     "fast-check": "4.9.0",
+    "gifenc": "1.0.3",
     "json-schema-to-typescript": "15.0.4",
     "oxlint": "1.74.0",
     "prettier": "3.9.5",
