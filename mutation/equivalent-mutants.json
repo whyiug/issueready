@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "https://example.invalid/issueready/mutation-equivalent-review/v1alpha1",
+  "reviews": [
+    {
+      "scope": "decision",
+      "sourceDigest": "sha256:fed78912d608774f00506688898e9ead324e87124991d742160159617845096f",
+      "mutatorName": "ArrayDeclaration",
+      "replacement": "[\"Stryker was here\"]",
+      "location": {
+        "start": { "line": 183, "column": 52 },
+        "end": { "line": 183, "column": 54 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "evaluationRules is optional. When omitted, the replacement array's string has undefined outcome/effect fields, so every fatal, degraded, and spec-nulling predicate remains false exactly as for the empty default. It cannot change decision precedence, disposition, reasons, or gates."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "false",
+      "location": {
+        "start": { "line": 259, "column": 7 },
+        "end": { "line": 259, "column": 26 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "For an empty layer array, layers[0]?.source is undefined and the second disjunct is true; for a non-empty array the removed length check is false. The BUILT_IN guard result is unchanged."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "OptionalChaining",
+      "replacement": "layers[0].source",
+      "location": {
+        "start": { "line": 259, "column": 30 },
+        "end": { "line": 259, "column": 47 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "An empty array short-circuits on layers.length === 0 before layers[0] is evaluated; for every non-empty array layers[0] exists. Removing optional chaining cannot change the guard or throw."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "EqualityOperator",
+      "replacement": "rank < previousRank",
+      "location": {
+        "start": { "line": 272, "column": 9 },
+        "end": { "line": 272, "column": 29 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "POLICY_PRECEDENCE is injective. Equal ranks imply the same layer source, which is independently rejected by seen.has(layer.source); all unequal-rank cases retain the same comparison result."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "true",
+      "location": {
+        "start": { "line": 283, "column": 9 },
+        "end": { "line": 283, "column": 28 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The only added call is mergeTwo(firstPolicy, firstPolicy). Every scalar, mapping, optional section, and local finding resolves to a value-equivalent copy, after which later layers and provenance are processed identically."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "StringLiteral",
+      "replacement": "\"\"",
+      "location": {
+        "start": { "line": 287, "column": 26 },
+        "end": { "line": 287, "column": 29 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "flattenLeaves starts from a required non-empty policy object and emits only descendant paths after appending a slash and key. The path fallback is unreachable because every emitted path is non-empty."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "StringLiteral",
+      "replacement": "\"\"",
+      "location": {
+        "start": { "line": 370, "column": 34 },
+        "end": { "line": 370, "column": 49 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "labelAttempt consumes mappingAttempt only for status and taskType. It constructs the externally visible attempt with the fixed TRUSTED_LABEL source, so this internal source argument is not observable."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "true",
+      "location": {
+        "start": { "line": 371, "column": 12 },
+        "end": { "line": 371, "column": 38 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "mappingAttempt's constructors guarantee taskType is non-null exactly when status is MATCHED. Replacing this redundant status predicate leaves the taskType predicate and every mapped label unchanged."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "LogicalOperator",
+      "replacement": "match.status === \"MATCHED\" || match.taskType !== null",
+      "location": {
+        "start": { "line": 371, "column": 12 },
+        "end": { "line": 371, "column": 65 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "mappingAttempt's constructors maintain the invariant status MATCHED iff taskType is non-null, so AND and OR over these identical booleans produce the same result."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "true",
+      "location": {
+        "start": { "line": 371, "column": 42 },
+        "end": { "line": 371, "column": 65 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "mappingAttempt's constructors guarantee a MATCHED status always carries a non-null taskType. The removed predicate is therefore true whenever its left predicate is true."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "LogicalOperator",
+      "replacement": "attempt.status === \"MATCHED\" || attempt.taskType !== null",
+      "location": {
+        "start": { "line": 436, "column": 18 },
+        "end": { "line": 436, "column": 75 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "Every attempt constructor, including FALLBACK, maintains status MATCHED iff taskType is non-null. AND and OR over these identical booleans select the same first attempt."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "true",
+      "location": {
+        "start": { "line": 436, "column": 18 },
+        "end": { "line": 436, "column": 46 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "All attempt constructors make taskType non-null only for MATCHED attempts. The remaining taskType predicate therefore selects exactly the same first attempt."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "true",
+      "location": {
+        "start": { "line": 436, "column": 50 },
+        "end": { "line": 436, "column": 75 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "All MATCHED attempts have a non-null taskType by construction. The remaining status predicate therefore selects exactly the same first attempt."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "false",
+      "location": {
+        "start": { "line": 438, "column": 7 },
+        "end": { "line": 438, "column": 60 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "attempts always ends with a fixed MATCHED generic fallback carrying a non-null taskType, so selected is defined and non-null; this failure branch is unreachable."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "LogicalOperator",
+      "replacement": "selected?.taskType === null && selected === undefined",
+      "location": {
+        "start": { "line": 438, "column": 7 },
+        "end": { "line": 438, "column": 60 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "attempts always ends with a fixed MATCHED generic fallback, making both failure predicates false. AND and OR therefore both evaluate false."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "false",
+      "location": {
+        "start": { "line": 438, "column": 7 },
+        "end": { "line": 438, "column": 34 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The fixed final FALLBACK attempt guarantees selected is defined with a non-null taskType, so the removed null predicate is always false."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ConditionalExpression",
+      "replacement": "false",
+      "location": {
+        "start": { "line": 438, "column": 38 },
+        "end": { "line": 438, "column": 60 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The fixed final FALLBACK attempt guarantees selected is defined, so the removed undefined predicate is always false."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "OptionalChaining",
+      "replacement": "selected.taskType",
+      "location": {
+        "start": { "line": 438, "column": 7 },
+        "end": { "line": 438, "column": 25 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The fixed final MATCHED fallback guarantees selected exists before this expression, so optional and direct property access are identical."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "BlockStatement",
+      "replacement": "{}",
+      "location": {
+        "start": { "line": 438, "column": 62 },
+        "end": { "line": 440, "column": 4 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The fixed final MATCHED generic fallback makes the guarded failure block unreachable for every input."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "StringLiteral",
+      "replacement": "\"\"",
+      "location": {
+        "start": { "line": 439, "column": 25 },
+        "end": { "line": 439, "column": 62 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "The fixed final MATCHED generic fallback makes this throw and its message unreachable for every input."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "EqualityOperator",
+      "replacement": "rank[right] >= rank[left]",
+      "location": {
+        "start": { "line": 453, "column": 10 },
+        "end": { "line": 453, "column": 34 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "When ranks are equal, left and right are the same disposition string, so returning either operand is identical; unequal ranks retain the same comparison result."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "ArrayDeclaration",
+      "replacement": "[\"Stryker was here\"]",
+      "location": {
+        "start": { "line": 492, "column": 60 },
+        "end": { "line": 492, "column": 62 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "When localFindings is absent, the replacement string exposes String.prototype.match; its labelsAny, nativeTypesAny, and pathPrefixesAny properties are all undefined, so every match remains false and no reason or ID is emitted."
+    },
+    {
+      "scope": "policy",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "mutatorName": "StringLiteral",
+      "replacement": "\"Stryker was here!\"",
+      "location": {
+        "start": { "line": 504, "column": 50 },
+        "end": { "line": 504, "column": 52 }
+      },
+      "classification": "EQUIVALENT",
+      "critical": false,
+      "rationale": "This nullish fallback is nested under input.nativeIssueType !== null, so the left operand is guaranteed non-null and the replacement is never evaluated."
+    }
+  ]
+}

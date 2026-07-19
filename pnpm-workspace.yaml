@@ -1,0 +1,6 @@
+packages:
+  - packages/*
+  - apps/*
+
+catalog:
+  ajv: 8.20.0

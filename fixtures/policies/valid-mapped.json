@@ -1,0 +1,37 @@
+{
+  "apiVersion": "https://example.invalid/issueready/config/v1alpha1",
+  "kind": "IssueReadyPolicy",
+  "metadata": { "name": "mapped" },
+  "spec": {
+    "evaluationProfile": "balanced-v1",
+    "locale": "en",
+    "taskTypes": {
+      "nativeTypeMappings": { "Bug": "bug", "Incident": "operations" },
+      "issueFormMappings": {
+        ".github/ISSUE_TEMPLATE/feature.yml": "feature"
+      },
+      "trustedLabelMappings": { "documentation": "docs" }
+    },
+    "localFindings": [
+      {
+        "id": "LOCAL-PRODUCTION_PATH",
+        "messageKey": "local-findings.production-path",
+        "match": { "pathPrefixesAny": ["infra/production/"] },
+        "dispositionEffect": "HUMAN_ONLY"
+      }
+    ],
+    "delegation": {
+      "default": "CANDIDATE",
+      "nativeTypeMappings": { "Incident": "HUMAN_ONLY" },
+      "trustedLabelMappings": { "sensitive": "SUPERVISED" }
+    },
+    "context": {
+      "includeCommentsFrom": ["issue-author", "owner", "member"],
+      "maxInputBytes": 131072,
+      "fetchExternalLinks": false
+    },
+    "semantic": { "enabled": true },
+    "suggestions": { "maxQuestions": 5, "maxSplits": 8 },
+    "githubWrite": { "mode": "disabled" }
+  }
+}

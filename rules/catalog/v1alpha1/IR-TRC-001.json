@@ -1,0 +1,41 @@
+{
+  "id": "IR-TRC-001",
+  "revision": 1,
+  "dimension": "traceability",
+  "engine": "deterministic",
+  "messageKey": "rules.traceability.resolvable-reference",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "advisory",
+  "evidenceSources": [
+    "markdown-ast:internal-reference",
+    "github-reference:resolution-state"
+  ],
+  "aggregation": {
+    "operator": "deterministic-evidence",
+    "sourcePriority": ["markdown-ast", "github-reference"],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": "none",
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NONE",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NONE",
+    "dispositionEffect": "NONE"
+  }
+}

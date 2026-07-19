@@ -1,0 +1,41 @@
+{
+  "id": "IR-BUG-001",
+  "revision": 1,
+  "dimension": "bug",
+  "engine": "deterministic+semantic",
+  "messageKey": "rules.bug.observed-versus-expected",
+  "appliesTo": ["bug"],
+  "canonicalLevel": "mandatory",
+  "evidenceSources": [
+    "issue-form-field:observed",
+    "issue-form-field:expected",
+    "markdown-ast:observed-expected",
+    "semantic-criterion:observed-expected-distinction"
+  ],
+  "aggregation": {
+    "operator": "hard-facts-first-then-semantic-coverage",
+    "sourcePriority": [
+      "issue-form-field",
+      "markdown-ast",
+      "semantic-criterion"
+    ],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": {
+    "kind": "required-field-provably-empty",
+    "allowedSources": ["issue-form-field"]
+  },
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

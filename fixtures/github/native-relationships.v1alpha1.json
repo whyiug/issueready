@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "https://example.invalid/issueready/github-native-relationship-fixture/v1alpha1",
+  "kind": "GithubNativeRelationshipFixtureCatalog",
+  "fixtures": [
+    {
+      "id": "depth-eight-accepted",
+      "recipe": { "kind": "CHAIN", "levels": 8 },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 8,
+          "maxChildren": 1,
+          "crossRepository": false,
+          "dependencyCycle": false,
+          "openNodes": 8,
+          "closedNodes": 0,
+          "hierarchyEdges": 7,
+          "dependencyEdges": 0
+        }
+      }
+    },
+    {
+      "id": "depth-nine-rejected",
+      "recipe": { "kind": "CHAIN", "levels": 9 },
+      "expected": {
+        "outcome": "INVALID",
+        "reason": "HIERARCHY_DEPTH_EXCEEDED"
+      }
+    },
+    {
+      "id": "one-hundred-children-accepted",
+      "recipe": { "kind": "FANOUT", "children": 100 },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 2,
+          "maxChildren": 100,
+          "crossRepository": false,
+          "dependencyCycle": false,
+          "openNodes": 101,
+          "closedNodes": 0,
+          "hierarchyEdges": 100,
+          "dependencyEdges": 0
+        }
+      }
+    },
+    {
+      "id": "one-hundred-one-children-rejected",
+      "recipe": { "kind": "FANOUT", "children": 101 },
+      "expected": {
+        "outcome": "INVALID",
+        "reason": "CHILD_BOUND_EXCEEDED"
+      }
+    },
+    {
+      "id": "cross-repository-child",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-root",
+        "nodes": [
+          {
+            "issueNodeId": "issue-root",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-child",
+            "repositoryNodeId": "repo-b",
+            "owner": "community",
+            "repository": "docs",
+            "number": 2,
+            "state": "OPEN"
+          }
+        ],
+        "edges": [
+          {
+            "kind": "SUB_ISSUE",
+            "from": "issue-root",
+            "to": "issue-child"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 2,
+          "maxChildren": 1,
+          "crossRepository": true,
+          "dependencyCycle": false,
+          "openNodes": 2,
+          "closedNodes": 0,
+          "hierarchyEdges": 1,
+          "dependencyEdges": 0
+        }
+      }
+    },
+    {
+      "id": "duplicate-dependency-rejected",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-root",
+        "nodes": [
+          {
+            "issueNodeId": "issue-root",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-blocked",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 2,
+            "state": "OPEN"
+          }
+        ],
+        "edges": [
+          {
+            "kind": "BLOCKS",
+            "from": "issue-root",
+            "to": "issue-blocked"
+          },
+          {
+            "kind": "BLOCKS",
+            "from": "issue-root",
+            "to": "issue-blocked"
+          }
+        ]
+      },
+      "expected": { "outcome": "INVALID", "reason": "DUPLICATE_EDGE" }
+    },
+    {
+      "id": "dependency-cycle-detected",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-a",
+        "nodes": [
+          {
+            "issueNodeId": "issue-a",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-b",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 2,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-c",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 3,
+            "state": "OPEN"
+          }
+        ],
+        "edges": [
+          { "kind": "BLOCKS", "from": "issue-a", "to": "issue-b" },
+          { "kind": "BLOCKS", "from": "issue-b", "to": "issue-c" },
+          { "kind": "BLOCKS", "from": "issue-c", "to": "issue-a" }
+        ]
+      },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 1,
+          "maxChildren": 0,
+          "crossRepository": false,
+          "dependencyCycle": true,
+          "openNodes": 3,
+          "closedNodes": 0,
+          "hierarchyEdges": 0,
+          "dependencyEdges": 3
+        }
+      }
+    },
+    {
+      "id": "closed-child",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-root",
+        "nodes": [
+          {
+            "issueNodeId": "issue-root",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-child",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 2,
+            "state": "CLOSED"
+          }
+        ],
+        "edges": [
+          {
+            "kind": "SUB_ISSUE",
+            "from": "issue-root",
+            "to": "issue-child"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 2,
+          "maxChildren": 1,
+          "crossRepository": false,
+          "dependencyCycle": false,
+          "openNodes": 1,
+          "closedNodes": 1,
+          "hierarchyEdges": 1,
+          "dependencyEdges": 0
+        }
+      }
+    },
+    {
+      "id": "reopened-child",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-root",
+        "nodes": [
+          {
+            "issueNodeId": "issue-root",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-child",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 2,
+            "state": "OPEN"
+          }
+        ],
+        "edges": [
+          {
+            "kind": "SUB_ISSUE",
+            "from": "issue-root",
+            "to": "issue-child"
+          }
+        ]
+      },
+      "expected": {
+        "outcome": "OK",
+        "analysis": {
+          "hierarchyDepth": 2,
+          "maxChildren": 1,
+          "crossRepository": false,
+          "dependencyCycle": false,
+          "openNodes": 2,
+          "closedNodes": 0,
+          "hierarchyEdges": 1,
+          "dependencyEdges": 0
+        }
+      }
+    },
+    {
+      "id": "hierarchy-cycle-rejected",
+      "recipe": {
+        "kind": "EXPLICIT",
+        "rootIssueNodeId": "issue-root",
+        "nodes": [
+          {
+            "issueNodeId": "issue-root",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 1,
+            "state": "OPEN"
+          },
+          {
+            "issueNodeId": "issue-child",
+            "repositoryNodeId": "repo-a",
+            "owner": "acme",
+            "repository": "widgets",
+            "number": 2,
+            "state": "OPEN"
+          }
+        ],
+        "edges": [
+          {
+            "kind": "SUB_ISSUE",
+            "from": "issue-root",
+            "to": "issue-child"
+          },
+          {
+            "kind": "SUB_ISSUE",
+            "from": "issue-child",
+            "to": "issue-root"
+          }
+        ]
+      },
+      "expected": { "outcome": "INVALID", "reason": "HIERARCHY_CYCLE" }
+    }
+  ]
+}

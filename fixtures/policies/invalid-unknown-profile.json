@@ -1,0 +1,15 @@
+{
+  "apiVersion": "https://example.invalid/issueready/config/v1alpha1",
+  "kind": "IssueReadyPolicy",
+  "metadata": { "name": "unknown-profile" },
+  "spec": {
+    "evaluationProfile": "custom-inline-v1",
+    "locale": "en",
+    "context": {
+      "includeCommentsFrom": ["issue-author", "owner"],
+      "maxInputBytes": 131072,
+      "fetchExternalLinks": false
+    },
+    "githubWrite": { "mode": "disabled" }
+  }
+}

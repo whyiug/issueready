@@ -1,0 +1,45 @@
+{
+  "id": "IR-INP-001",
+  "revision": 1,
+  "dimension": "input-integrity",
+  "engine": "deterministic",
+  "messageKey": "rules.input-integrity.snapshot-evaluation-integrity",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "evaluation-only",
+  "evidenceSources": [
+    "snapshot-integrity:validation",
+    "snapshot-integrity:truncation",
+    "snapshot-integrity:coverage"
+  ],
+  "aggregation": {
+    "operator": "deterministic-evidence",
+    "sourcePriority": ["snapshot-integrity"],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": {
+    "kind": "snapshot-invalid-or-incomplete",
+    "allowedSources": ["snapshot-integrity"]
+  },
+  "onFail": {
+    "evaluationEffect": "ERROR",
+    "specEffect": "NONE",
+    "dispositionEffect": "UNKNOWN"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL",
+    "dispositionEffect": "UNKNOWN"
+  }
+}

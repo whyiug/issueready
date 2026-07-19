@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/curated-issue-fixture-catalog/v1alpha1",
+  "title": "IssueReady curated Issue behavior fixture catalog",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "purpose",
+    "limitations",
+    "semanticProfile",
+    "rights",
+    "fixtures"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "https://example.invalid/issueready/curated-issue-fixture-catalog/v1alpha1"
+    },
+    "kind": { "const": "CuratedIssueFixtureCatalog" },
+    "purpose": { "const": "DEVELOPER_BEHAVIOR_REGRESSION" },
+    "limitations": {
+      "type": "object",
+      "required": ["accuracyClaim", "calibrationUse", "heldOut"],
+      "properties": {
+        "accuracyClaim": { "const": false },
+        "calibrationUse": { "const": false },
+        "heldOut": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "semanticProfile": {
+      "type": "object",
+      "required": ["id", "revision", "digest"],
+      "properties": {
+        "id": { "const": "curated-regression-v1" },
+        "revision": { "const": 1 },
+        "digest": { "$ref": "#/$defs/digest" }
+      },
+      "additionalProperties": false
+    },
+    "rights": { "$ref": "#/$defs/rights" },
+    "fixtures": {
+      "type": "array",
+      "minItems": 8,
+      "items": { "$ref": "#/$defs/fixture" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "taskType": {
+      "enum": [
+        "generic",
+        "bug",
+        "feature",
+        "docs",
+        "dependency",
+        "refactor",
+        "test-ci",
+        "operations"
+      ]
+    },
+    "rights": {
+      "type": "object",
+      "required": [
+        "rightsBasis",
+        "rawTextIncluded",
+        "permission",
+        "apiTerms",
+        "annotationLicense",
+        "consent",
+        "retention",
+        "deletion",
+        "provenance"
+      ],
+      "properties": {
+        "rightsBasis": { "const": "project-authored-synthetic" },
+        "rawTextIncluded": { "const": true },
+        "permission": {
+          "type": "object",
+          "required": ["status", "grantedBy", "scope"],
+          "properties": {
+            "status": { "const": "not-required-project-authored" },
+            "grantedBy": { "const": "IssueReady project" },
+            "scope": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "behavior-regression",
+                  "future-publication-subject-to-project-license"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "apiTerms": {
+          "type": "object",
+          "required": ["host", "reviewedAt", "policyDigest"],
+          "properties": {
+            "host": { "type": "null" },
+            "reviewedAt": { "type": "null" },
+            "policyDigest": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        "annotationLicense": { "const": "project-license-pending" },
+        "consent": {
+          "type": "object",
+          "required": ["required", "status", "scope"],
+          "properties": {
+            "required": { "const": false },
+            "status": { "const": "not-applicable-synthetic" },
+            "scope": { "type": "array", "maxItems": 0 }
+          },
+          "additionalProperties": false
+        },
+        "retention": {
+          "type": "object",
+          "required": ["rawDays", "derivedDays", "policy"],
+          "properties": {
+            "rawDays": { "type": "null" },
+            "derivedDays": { "type": "null" },
+            "policy": { "const": "source-controlled-project-fixture" }
+          },
+          "additionalProperties": false
+        },
+        "deletion": {
+          "type": "object",
+          "required": ["method", "contact", "slaDays"],
+          "properties": {
+            "method": { "const": "remove-from-future-revisions" },
+            "contact": { "const": "private-repository-maintainer" },
+            "slaDays": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        "provenance": {
+          "type": "object",
+          "required": ["collector", "createdAt"],
+          "properties": {
+            "collector": { "const": "IssueReady project" },
+            "createdAt": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidenceBinding": {
+      "type": "object",
+      "required": ["document", "quote"],
+      "properties": {
+        "document": { "enum": ["issue.title", "issue.body"] },
+        "quote": { "type": "string", "minLength": 1, "maxLength": 512 }
+      },
+      "additionalProperties": false
+    },
+    "semanticSignal": {
+      "type": "object",
+      "required": ["ruleId", "source", "outcome", "evidence"],
+      "properties": {
+        "ruleId": {
+          "type": "string",
+          "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}$"
+        },
+        "source": {
+          "type": "string",
+          "pattern": "^semantic-criterion:[a-z0-9-]+$"
+        },
+        "outcome": { "enum": ["PASS", "FAIL", "NOT_APPLICABLE"] },
+        "evidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidenceBinding" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "fixture": {
+      "type": "object",
+      "required": [
+        "id",
+        "taskType",
+        "policyFixture",
+        "input",
+        "semanticSignals",
+        "expected",
+        "provenance",
+        "review"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^curated-[a-z0-9-]+$"
+        },
+        "taskType": { "$ref": "#/$defs/taskType" },
+        "policyFixture": { "enum": ["default", "mapped"] },
+        "input": {
+          "type": "object",
+          "required": [
+            "title",
+            "body",
+            "labels",
+            "nativeIssueType",
+            "changedPaths"
+          ],
+          "properties": {
+            "title": { "type": "string", "minLength": 1 },
+            "body": { "type": "string", "minLength": 1 },
+            "labels": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "nativeIssueType": { "type": ["string", "null"] },
+            "changedPaths": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "issueFormTemplatePath": { "type": ["string", "null"] },
+            "nativeReferences": {
+              "type": "array",
+              "maxItems": 100,
+              "items": {
+                "$ref": "https://example.invalid/issueready/snapshot/v1alpha1#/$defs/nativeReference"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "semanticSignals": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/semanticSignal" }
+        },
+        "expected": {
+          "type": "object",
+          "required": [
+            "evaluationStatus",
+            "specVerdict",
+            "delegationDisposition",
+            "blockingRuleIds",
+            "evaluationReasons"
+          ],
+          "properties": {
+            "evaluationStatus": {
+              "enum": ["COMPLETE", "DEGRADED", "ERROR"]
+            },
+            "specVerdict": {
+              "type": ["string", "null"],
+              "enum": ["READY", "NEEDS_INFO", "TOO_BROAD", null]
+            },
+            "delegationDisposition": {
+              "enum": ["CANDIDATE", "SUPERVISED", "HUMAN_ONLY", "UNKNOWN"]
+            },
+            "blockingRuleIds": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^IR-[A-Z]{3,5}-[0-9]{3}$"
+              }
+            },
+            "evaluationReasons": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            },
+            "providerCalls": { "const": 0 },
+            "forbiddenReportFragments": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "type": "string", "minLength": 1 }
+            }
+          },
+          "additionalProperties": false
+        },
+        "provenance": {
+          "type": "object",
+          "required": ["sourceDigest", "transformDigest"],
+          "properties": {
+            "sourceDigest": { "$ref": "#/$defs/digest" },
+            "transformDigest": { "$ref": "#/$defs/digest" }
+          },
+          "additionalProperties": false
+        },
+        "review": {
+          "type": "object",
+          "required": ["status", "reviewedAt", "claimScope"],
+          "properties": {
+            "status": { "const": "DEVELOPER_REVIEWED" },
+            "reviewedAt": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+            },
+            "claimScope": { "const": "BEHAVIOR_REGRESSION_ONLY" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

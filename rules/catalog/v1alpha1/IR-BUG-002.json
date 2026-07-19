@@ -1,0 +1,37 @@
+{
+  "id": "IR-BUG-002",
+  "revision": 1,
+  "dimension": "bug",
+  "engine": "hybrid",
+  "messageKey": "rules.bug.bounded-reproduction",
+  "appliesTo": ["bug"],
+  "canonicalLevel": "conditional",
+  "evidenceSources": [
+    "issue-form-field:reproduction",
+    "markdown-ast:reproduction",
+    "semantic-criterion:reproduction-or-constraint"
+  ],
+  "aggregation": {
+    "operator": "hard-facts-first-then-semantic-coverage",
+    "sourcePriority": [
+      "issue-form-field",
+      "markdown-ast",
+      "semantic-criterion"
+    ],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": "none",
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

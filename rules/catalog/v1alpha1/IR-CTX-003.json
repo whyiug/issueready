@@ -1,0 +1,44 @@
+{
+  "id": "IR-CTX-003",
+  "revision": 1,
+  "dimension": "context",
+  "engine": "deterministic",
+  "messageKey": "rules.context.essential-context-available",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "conditional",
+  "evidenceSources": [
+    "snapshot-context:availability",
+    "github-reference:access-state"
+  ],
+  "aggregation": {
+    "operator": "deterministic-evidence",
+    "sourcePriority": ["snapshot-context", "github-reference"],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": {
+    "kind": "essential-context-provably-unavailable",
+    "allowedSources": ["snapshot-context", "github-reference"]
+  },
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

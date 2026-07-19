@@ -1,0 +1,64 @@
+{
+  "name": "issueready-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local-first, evidence-backed readiness analysis for existing GitHub tasks.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git"
+  },
+  "homepage": "https://github.com/whyiug/issueready#readme",
+  "bugs": {
+    "url": "https://github.com/whyiug/issueready/issues"
+  },
+  "keywords": [
+    "github",
+    "issue-triage",
+    "local-first",
+    "readiness",
+    "typescript"
+  ],
+  "type": "module",
+  "packageManager": "pnpm@11.14.0",
+  "engines": {
+    "node": ">=24 <25",
+    "pnpm": ">=11.14.0 <12"
+  },
+  "scripts": {
+    "build": "corepack pnpm -r --if-present build",
+    "example": "corepack pnpm build && node examples/evaluate-local-issue.mjs",
+    "example:check": "node examples/evaluate-local-issue.mjs --check",
+    "format": "prettier --write package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
+    "format:check": "prettier --check package.json pnpm-workspace.yaml tsconfig.base.json vitest.config.ts .oxlintrc.json README.md CONTRIBUTING.md SECURITY.md SUPPORT.md CODE_OF_CONDUCT.md 'docs/**/*.md' 'examples/**/*.{md,mjs}' 'packages/**/*.{json,ts}' 'schemas/**/*.json' 'fixtures/**/*.{json,md,yml,yaml}' 'rules/**/*.json' 'locales/**/*.json' 'scripts/**/*.mjs' 'mutation/**/*.{json,md,mjs}' '.github/**/*.{md,yml,yaml}'",
+    "generate:schema-types": "node scripts/generate-schema-types.mjs",
+    "generate:schema-types:check": "node scripts/generate-schema-types.mjs --check",
+    "generate:rule-catalog": "node scripts/generate-rule-catalog.mjs",
+    "generate:rule-catalog:check": "node scripts/generate-rule-catalog.mjs --check",
+    "generate:rule-fixtures": "node scripts/generate-rule-fixtures.mjs",
+    "generate:rule-fixtures:check": "node scripts/generate-rule-fixtures.mjs --check",
+    "lint": "oxlint --deny-warnings --ignore-pattern 'packages/schema/src/generated/**' packages scripts examples vitest.config.ts",
+    "mutation": "corepack pnpm mutation:decision && corepack pnpm mutation:policy && corepack pnpm mutation:redaction",
+    "mutation:decision": "stryker run mutation/stryker.decision.config.mjs",
+    "mutation:evidence": "node scripts/summarize-mutation.mjs",
+    "mutation:evidence:check": "node scripts/summarize-mutation.mjs --check",
+    "mutation:policy": "stryker run mutation/stryker.policy.config.mjs",
+    "mutation:redaction": "stryker run mutation/stryker.redaction.config.mjs",
+    "typecheck": "corepack pnpm -r --if-present typecheck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate:json": "node scripts/validate-json.mjs",
+    "validate:links": "node scripts/validate-markdown-links.mjs",
+    "validate": "corepack pnpm format:check && corepack pnpm lint && corepack pnpm validate:json && corepack pnpm validate:links && corepack pnpm generate:schema-types:check && corepack pnpm generate:rule-catalog:check && corepack pnpm generate:rule-fixtures:check && corepack pnpm mutation:evidence:check && corepack pnpm typecheck && corepack pnpm test && corepack pnpm build && corepack pnpm example:check"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "9.6.1",
+    "@types/node": "24.13.3",
+    "fast-check": "4.9.0",
+    "json-schema-to-typescript": "15.0.4",
+    "oxlint": "1.74.0",
+    "prettier": "3.9.5",
+    "typescript": "7.0.2",
+    "vitest": "4.1.10"
+  }
+}

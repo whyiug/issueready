@@ -1,0 +1,32 @@
+{
+  "apiVersion": "https://example.invalid/issueready/task-pack/v1alpha1",
+  "kind": "TaskPack",
+  "id": "test-ci",
+  "revision": 1,
+  "displayNameKey": "task-packs.test-ci.name",
+  "criteria": {
+    "mandatory": [
+      "IR-ACC-001",
+      "IR-ACC-002",
+      "IR-COH-001",
+      "IR-DEF-001",
+      "IR-DEF-002",
+      "IR-DEF-003",
+      "IR-DEF-004",
+      "IR-SCP-001",
+      "IR-SCP-002",
+      "IR-VAL-001"
+    ],
+    "conditional": [
+      "IR-CTX-002",
+      "IR-CTX-003",
+      "IR-FRESH-001",
+      "IR-PERF-001",
+      "IR-SCP-003"
+    ],
+    "advisory": ["IR-CTX-001", "IR-TRC-001"],
+    "evaluation": ["IR-INP-001"],
+    "disposition": ["IR-POL-001"]
+  },
+  "nonRequirements": ["task-packs.test-ci.non-requirements.product-user-story"]
+}

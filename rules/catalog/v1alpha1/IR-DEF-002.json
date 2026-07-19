@@ -1,0 +1,38 @@
+{
+  "id": "IR-DEF-002",
+  "revision": 1,
+  "dimension": "definition",
+  "engine": "semantic",
+  "messageKey": "rules.definition.independent-restatement",
+  "appliesTo": [
+    "generic",
+    "bug",
+    "feature",
+    "docs",
+    "dependency",
+    "refactor",
+    "test-ci",
+    "operations"
+  ],
+  "canonicalLevel": "mandatory",
+  "evidenceSources": ["semantic-criterion:independent-restatement"],
+  "aggregation": {
+    "operator": "semantic-criterion",
+    "sourcePriority": ["semantic-criterion"],
+    "conflict": "preserve-all-evidence-hard-facts-win-otherwise-unknown",
+    "unknown": "propagate-when-no-complete-source-proves-outcome",
+    "notApplicable": "only-registered-task-pack-may-declare",
+    "possibleOutcomes": ["PASS", "FAIL", "UNKNOWN", "NOT_APPLICABLE"]
+  },
+  "hardPredicate": "none",
+  "onFail": {
+    "evaluationEffect": "NONE",
+    "specEffect": "NEEDS_INFO",
+    "dispositionEffect": "NONE"
+  },
+  "onUnknown": {
+    "evaluationEffect": "DEGRADED",
+    "specEffect": "NULL_IF_OUTCOME_COULD_CHANGE",
+    "dispositionEffect": "NONE"
+  }
+}

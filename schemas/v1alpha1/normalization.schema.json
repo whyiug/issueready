@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/issueready/normalization/v1alpha1",
+  "title": "IssueReady normalized Markdown or Issue Form submission",
+  "oneOf": [
+    { "$ref": "#/$defs/normalizedMarkdown" },
+    { "$ref": "#/$defs/issueFormSubmission" }
+  ],
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "textSpan": {
+      "type": "object",
+      "required": [
+        "document",
+        "startUtf16",
+        "endUtf16",
+        "lineStart",
+        "lineEnd"
+      ],
+      "properties": {
+        "document": { "type": "string", "minLength": 1 },
+        "startUtf16": { "type": "integer", "minimum": 0 },
+        "endUtf16": { "type": "integer", "minimum": 0 },
+        "lineStart": { "type": "integer", "minimum": 1 },
+        "lineEnd": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "heading": {
+      "type": "object",
+      "required": ["depth", "text", "span", "sectionSpan"],
+      "properties": {
+        "depth": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "text": { "type": "string" },
+        "span": { "$ref": "#/$defs/textSpan" },
+        "sectionSpan": { "$ref": "#/$defs/textSpan" }
+      },
+      "additionalProperties": false
+    },
+    "checklistItem": {
+      "type": "object",
+      "required": ["checked", "text", "span"],
+      "properties": {
+        "checked": { "type": "boolean" },
+        "text": { "type": "string" },
+        "span": { "$ref": "#/$defs/textSpan" }
+      },
+      "additionalProperties": false
+    },
+    "codeFence": {
+      "type": "object",
+      "required": ["language", "value", "span"],
+      "properties": {
+        "language": { "type": ["string", "null"] },
+        "value": { "type": "string" },
+        "span": { "$ref": "#/$defs/textSpan" }
+      },
+      "additionalProperties": false
+    },
+    "link": {
+      "type": "object",
+      "required": ["kind", "text", "url", "identifier", "span"],
+      "properties": {
+        "kind": { "enum": ["INLINE", "REFERENCE", "DEFINITION"] },
+        "text": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "identifier": { "type": ["string", "null"] },
+        "span": { "$ref": "#/$defs/textSpan" }
+      },
+      "additionalProperties": false
+    },
+    "normalizedMarkdown": {
+      "type": "object",
+      "required": [
+        "document",
+        "source",
+        "sourceDigest",
+        "headings",
+        "checklistItems",
+        "codeFences",
+        "links"
+      ],
+      "properties": {
+        "document": { "type": "string", "minLength": 1 },
+        "source": { "type": "string" },
+        "sourceDigest": { "$ref": "#/$defs/digest" },
+        "headings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/heading" }
+        },
+        "checklistItems": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/checklistItem" }
+        },
+        "codeFences": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/codeFence" }
+        },
+        "links": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/link" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "normalizedIssueFormField": {
+      "type": "object",
+      "required": [
+        "fieldId",
+        "kind",
+        "label",
+        "required",
+        "status",
+        "value",
+        "headingSpan",
+        "valueSpan"
+      ],
+      "properties": {
+        "fieldId": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["INPUT", "TEXTAREA", "DROPDOWN", "CHECKBOXES"] },
+        "label": { "type": "string", "minLength": 1 },
+        "required": { "type": "boolean" },
+        "status": {
+          "enum": ["PRESENT", "EMPTY", "PLACEHOLDER", "MISSING", "AMBIGUOUS"]
+        },
+        "value": { "type": ["string", "null"] },
+        "headingSpan": {
+          "oneOf": [{ "$ref": "#/$defs/textSpan" }, { "type": "null" }]
+        },
+        "valueSpan": {
+          "oneOf": [{ "$ref": "#/$defs/textSpan" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "issueFormSubmission": {
+      "type": "object",
+      "required": ["templatePath", "markdown", "fields"],
+      "properties": {
+        "templatePath": { "type": "string", "minLength": 1 },
+        "markdown": { "$ref": "#/$defs/normalizedMarkdown" },
+        "fields": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/normalizedIssueFormField" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

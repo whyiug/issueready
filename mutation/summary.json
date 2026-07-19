@@ -1,0 +1,548 @@
+{
+  "schemaVersion": "https://example.invalid/issueready/mutation-evidence/v1alpha1",
+  "tool": {
+    "stryker": "9.6.1",
+    "testRunner": "command-via-vitest",
+    "vitest": "4.1.10",
+    "concurrency": 2,
+    "timeoutMs": 10000,
+    "rawReports": "runs/mutation/*.json (local, gitignored)"
+  },
+  "sharedConfigDigest": "sha256:3b9f01004db716aba439d4551a7a3ae7792aae960ab16db3ec247ed9bc19cca4",
+  "reviewDigest": "sha256:bf913ebb5a34b8744c89b248b84a1a0e5f2f63dbaac3603c3050c92e259d7d9e",
+  "lockfileDigest": "sha256:603eb1e4b6d9d0c96a6294ccc98178ce89f49a5ab9c619acf6e321fa95ec85f5",
+  "scopes": [
+    {
+      "name": "decision",
+      "source": "packages/decision/src/index.ts",
+      "sourceDigest": "sha256:fed78912d608774f00506688898e9ead324e87124991d742160159617845096f",
+      "test": "packages/decision/test/decision.test.ts",
+      "testDigest": "sha256:0fc9c090b0c3a3240fbd0d36182d3e7fa4c6ea86a26c279f676ad1e3e3904a08",
+      "config": "mutation/stryker.decision.config.mjs",
+      "configDigest": "sha256:d0cc5d1d63cea581f1d8e535a2cbc2d29bf9550aa11179fd63f314dc3e152555",
+      "rawReportSchemaVersion": "1.0",
+      "counts": {
+        "total": 349,
+        "killed": 348,
+        "survived": 1,
+        "timeout": 0,
+        "noCoverage": 0,
+        "error": 0
+      },
+      "mutationScore": 99.71,
+      "threshold": 85,
+      "criticalSurvivors": 0,
+      "survivors": [
+        {
+          "id": "178",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "location": {
+            "end": {
+              "column": 54,
+              "line": 183
+            },
+            "start": {
+              "column": 52,
+              "line": 183
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "evaluationRules is optional. When omitted, the replacement array's string has undefined outcome/effect fields, so every fatal, degraded, and spec-nulling predicate remains false exactly as for the empty default. It cannot change decision precedence, disposition, reasons, or gates."
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "policy",
+      "source": "packages/policy/src/index.ts",
+      "sourceDigest": "sha256:1db138a249d0b7cc4f8bef19d1e2498546c762e92e9d05ed923aeaee8885606e",
+      "test": "packages/policy/test/policy.test.ts",
+      "testDigest": "sha256:55f4ba903cd079b9b68389f160e0363e7b2c64e7de3787783495070f76c2b7ae",
+      "config": "mutation/stryker.policy.config.mjs",
+      "configDigest": "sha256:776f071f4edec633b8de03333b7054221fab491c2caef08ae7ade14e9735c1fd",
+      "rawReportSchemaVersion": "1.0",
+      "counts": {
+        "total": 466,
+        "killed": 444,
+        "survived": 22,
+        "timeout": 0,
+        "noCoverage": 0,
+        "error": 0
+      },
+      "mutationScore": 95.28,
+      "threshold": 85,
+      "criticalSurvivors": 0,
+      "survivors": [
+        {
+          "id": "171",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "location": {
+            "end": {
+              "column": 26,
+              "line": 259
+            },
+            "start": {
+              "column": 7,
+              "line": 259
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "For an empty layer array, layers[0]?.source is undefined and the second disjunct is true; for a non-empty array the removed length check is false. The BUILT_IN guard result is unchanged."
+          }
+        },
+        {
+          "id": "175",
+          "mutatorName": "OptionalChaining",
+          "replacement": "layers[0].source",
+          "location": {
+            "end": {
+              "column": 47,
+              "line": 259
+            },
+            "start": {
+              "column": 30,
+              "line": 259
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "An empty array short-circuits on layers.length === 0 before layers[0] is evaluated; for every non-empty array layers[0] exists. Removing optional chaining cannot change the guard or throw."
+          }
+        },
+        {
+          "id": "199",
+          "mutatorName": "EqualityOperator",
+          "replacement": "rank < previousRank",
+          "location": {
+            "end": {
+              "column": 29,
+              "line": 272
+            },
+            "start": {
+              "column": 9,
+              "line": 272
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "POLICY_PRECEDENCE is injective. Equal ranks imply the same layer source, which is independently rejected by seen.has(layer.source); all unequal-rank cases retain the same comparison result."
+          }
+        },
+        {
+          "id": "204",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "location": {
+            "end": {
+              "column": 28,
+              "line": 283
+            },
+            "start": {
+              "column": 9,
+              "line": 283
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The only added call is mergeTwo(firstPolicy, firstPolicy). Every scalar, mapping, optional section, and local finding resolves to a value-equivalent copy, after which later layers and provenance are processed identically."
+          }
+        },
+        {
+          "id": "213",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "location": {
+            "end": {
+              "column": 29,
+              "line": 287
+            },
+            "start": {
+              "column": 26,
+              "line": 287
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "flattenLeaves starts from a required non-empty policy object and emits only descendant paths after appending a slash and key. The path fallback is unreachable because every emitted path is non-empty."
+          }
+        },
+        {
+          "id": "300",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "location": {
+            "end": {
+              "column": 49,
+              "line": 370
+            },
+            "start": {
+              "column": 34,
+              "line": 370
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "labelAttempt consumes mappingAttempt only for status and taskType. It constructs the externally visible attempt with the fixed TRUSTED_LABEL source, so this internal source argument is not observable."
+          }
+        },
+        {
+          "id": "305",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "location": {
+            "end": {
+              "column": 38,
+              "line": 371
+            },
+            "start": {
+              "column": 12,
+              "line": 371
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "mappingAttempt's constructors guarantee taskType is non-null exactly when status is MATCHED. Replacing this redundant status predicate leaves the taskType predicate and every mapped label unchanged."
+          }
+        },
+        {
+          "id": "304",
+          "mutatorName": "LogicalOperator",
+          "replacement": "match.status === \"MATCHED\" || match.taskType !== null",
+          "location": {
+            "end": {
+              "column": 65,
+              "line": 371
+            },
+            "start": {
+              "column": 12,
+              "line": 371
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "mappingAttempt's constructors maintain the invariant status MATCHED iff taskType is non-null, so AND and OR over these identical booleans produce the same result."
+          }
+        },
+        {
+          "id": "308",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "location": {
+            "end": {
+              "column": 65,
+              "line": 371
+            },
+            "start": {
+              "column": 42,
+              "line": 371
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "mappingAttempt's constructors guarantee a MATCHED status always carries a non-null taskType. The removed predicate is therefore true whenever its left predicate is true."
+          }
+        },
+        {
+          "id": "365",
+          "mutatorName": "LogicalOperator",
+          "replacement": "attempt.status === \"MATCHED\" || attempt.taskType !== null",
+          "location": {
+            "end": {
+              "column": 75,
+              "line": 436
+            },
+            "start": {
+              "column": 18,
+              "line": 436
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "Every attempt constructor, including FALLBACK, maintains status MATCHED iff taskType is non-null. AND and OR over these identical booleans select the same first attempt."
+          }
+        },
+        {
+          "id": "366",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "location": {
+            "end": {
+              "column": 46,
+              "line": 436
+            },
+            "start": {
+              "column": 18,
+              "line": 436
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "All attempt constructors make taskType non-null only for MATCHED attempts. The remaining taskType predicate therefore selects exactly the same first attempt."
+          }
+        },
+        {
+          "id": "369",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "true",
+          "location": {
+            "end": {
+              "column": 75,
+              "line": 436
+            },
+            "start": {
+              "column": 50,
+              "line": 436
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "All MATCHED attempts have a non-null taskType by construction. The remaining status predicate therefore selects exactly the same first attempt."
+          }
+        },
+        {
+          "id": "372",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "location": {
+            "end": {
+              "column": 60,
+              "line": 438
+            },
+            "start": {
+              "column": 7,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "attempts always ends with a fixed MATCHED generic fallback carrying a non-null taskType, so selected is defined and non-null; this failure branch is unreachable."
+          }
+        },
+        {
+          "id": "373",
+          "mutatorName": "LogicalOperator",
+          "replacement": "selected?.taskType === null && selected === undefined",
+          "location": {
+            "end": {
+              "column": 60,
+              "line": 438
+            },
+            "start": {
+              "column": 7,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "attempts always ends with a fixed MATCHED generic fallback, making both failure predicates false. AND and OR therefore both evaluate false."
+          }
+        },
+        {
+          "id": "374",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 438
+            },
+            "start": {
+              "column": 7,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The fixed final FALLBACK attempt guarantees selected is defined with a non-null taskType, so the removed null predicate is always false."
+          }
+        },
+        {
+          "id": "377",
+          "mutatorName": "ConditionalExpression",
+          "replacement": "false",
+          "location": {
+            "end": {
+              "column": 60,
+              "line": 438
+            },
+            "start": {
+              "column": 38,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The fixed final FALLBACK attempt guarantees selected is defined, so the removed undefined predicate is always false."
+          }
+        },
+        {
+          "id": "376",
+          "mutatorName": "OptionalChaining",
+          "replacement": "selected.taskType",
+          "location": {
+            "end": {
+              "column": 25,
+              "line": 438
+            },
+            "start": {
+              "column": 7,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The fixed final MATCHED fallback guarantees selected exists before this expression, so optional and direct property access are identical."
+          }
+        },
+        {
+          "id": "379",
+          "mutatorName": "BlockStatement",
+          "replacement": "{}",
+          "location": {
+            "end": {
+              "column": 4,
+              "line": 440
+            },
+            "start": {
+              "column": 62,
+              "line": 438
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The fixed final MATCHED generic fallback makes the guarded failure block unreachable for every input."
+          }
+        },
+        {
+          "id": "380",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"\"",
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 439
+            },
+            "start": {
+              "column": 25,
+              "line": 439
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "The fixed final MATCHED generic fallback makes this throw and its message unreachable for every input."
+          }
+        },
+        {
+          "id": "385",
+          "mutatorName": "EqualityOperator",
+          "replacement": "rank[right] >= rank[left]",
+          "location": {
+            "end": {
+              "column": 34,
+              "line": 453
+            },
+            "start": {
+              "column": 10,
+              "line": 453
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "When ranks are equal, left and right are the same disposition string, so returning either operand is identical; unequal ranks retain the same comparison result."
+          }
+        },
+        {
+          "id": "420",
+          "mutatorName": "ArrayDeclaration",
+          "replacement": "[\"Stryker was here\"]",
+          "location": {
+            "end": {
+              "column": 62,
+              "line": 492
+            },
+            "start": {
+              "column": 60,
+              "line": 492
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "When localFindings is absent, the replacement string exposes String.prototype.match; its labelsAny, nativeTypesAny, and pathPrefixesAny properties are all undefined, so every match remains false and no reason or ID is emitted."
+          }
+        },
+        {
+          "id": "445",
+          "mutatorName": "StringLiteral",
+          "replacement": "\"Stryker was here!\"",
+          "location": {
+            "end": {
+              "column": 52,
+              "line": 504
+            },
+            "start": {
+              "column": 50,
+              "line": 504
+            }
+          },
+          "review": {
+            "classification": "EQUIVALENT",
+            "critical": false,
+            "rationale": "This nullish fallback is nested under input.nativeIssueType !== null, so the left operand is guaranteed non-null and the replacement is never evaluated."
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "redaction",
+      "source": "packages/report/src/redaction.ts",
+      "sourceDigest": "sha256:4a2806cac28415be7c55a880d6713c7d73101d9ab15c69b6d1536c368dde7b69",
+      "test": "packages/report/test/redaction.test.ts",
+      "testDigest": "sha256:42f64c82bd6cf868da0e55372508a60e45445c3ce42a4e953b8e0823c97d349a",
+      "config": "mutation/stryker.redaction.config.mjs",
+      "configDigest": "sha256:daab95ea15b7aeb4a6cf2349303d1c920baff3f5821573dd183eb2d642de5433",
+      "rawReportSchemaVersion": "1.0",
+      "counts": {
+        "total": 46,
+        "killed": 46,
+        "survived": 0,
+        "timeout": 0,
+        "noCoverage": 0,
+        "error": 0
+      },
+      "mutationScore": 100,
+      "threshold": 85,
+      "criticalSurvivors": 0,
+      "survivors": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

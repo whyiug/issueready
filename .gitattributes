@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+*.golden text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.mjs text eol=lf
+*.ts text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+packages/schema/src/generated/** linguist-generated=true
+fixtures/rules/four-state.v1alpha1.json linguist-generated=true
+rules/catalog/v1alpha1/** linguist-generated=true
+rules/task-packs/v1alpha1/** linguist-generated=true

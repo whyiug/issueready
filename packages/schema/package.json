@@ -1,0 +1,36 @@
+{
+  "name": "@issueready/schema",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Runtime JSON Schema validation and generated types for IssueReady.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git",
+    "directory": "packages/schema"
+  },
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "ajv": "catalog:"
+  },
+  "devDependencies": {
+    "@issueready/domain": "workspace:*"
+  }
+}
