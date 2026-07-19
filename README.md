@@ -1,55 +1,100 @@
 # IssueReady
 
+![IssueReady — know when an issue is ready to build](assets/social-preview.png)
+
 [![CI](https://github.com/whyiug/issueready/actions/workflows/ci.yml/badge.svg)](https://github.com/whyiug/issueready/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
-IssueReady is a local-first TypeScript toolkit for deciding whether a GitHub issue is ready for implementation. It produces evidence-backed results without executing coding agents or writing to GitHub.
+IssueReady tells you whether a GitHub issue is ready for a human or coding
+agent—locally, deterministically, and with traceable evidence. It never executes
+an agent or writes to GitHub.
 
-Instead of collapsing everything into one score, IssueReady keeps three questions separate:
+Instead of hiding uncertainty inside one score, IssueReady keeps three decisions
+separate:
 
 - **Evaluation:** did the analysis complete reliably?
 - **Specification:** is the task ready, missing information, or demonstrably too broad?
 - **Delegation:** may an agent work independently, under supervision, or only with a human?
 
+## Try it
+
+Requirements: Node.js 24 and npm 11 or later.
+
+```bash
+npx issueready demo ready
+npx issueready demo needs-info
+```
+
+![IssueReady terminal demonstration](assets/terminal-demo.gif)
+
+The demonstrations are project-authored synthetic issues with reviewed semantic
+signals. They show the full decision contract without sending content to a
+model or network service.
+
+## Check an issue
+
+Evaluate a local Markdown draft:
+
+```bash
+npx issueready path/to/issue.md
+```
+
+Evaluate a public GitHub issue by URL or shorthand:
+
+```bash
+npx issueready https://github.com/owner/repository/issues/123
+npx issueready owner/repository#123
+```
+
+Public issues work anonymously. For private issues or higher GitHub API rate
+limits, set `GITHUB_TOKEN` in the environment. Tokens are never accepted as
+command arguments, persisted, or included in reports.
+
+The default output is a compact terminal summary:
+
+```text
+IssueReady 0.1.0
+Task:          bug
+Evaluation:    COMPLETE
+Specification: READY
+Delegation:    CANDIDATE
+Blocking checks: none
+```
+
+Use `--format markdown` for an evidence report or `--format json` for
+automation. Add `--include-quotes` only when redacted source excerpts are
+appropriate for the output destination.
+
+See the [CLI reference](docs/cli.md) for all commands, output behavior, exit
+codes, network boundaries, and alpha limitations.
+
 ## Why IssueReady
 
 - **Evidence over heuristics.** Findings point to exact source spans and versioned rules.
-- **Deterministic by default.** The core runs locally without an API key, model, database, or network connection.
-- **Honest uncertainty.** Permission failures, rate limits, partial responses, and malformed input never masquerade as missing requirements.
-- **Repository-aware.** Policies, Issue Forms, task types, fields, relationships, and dependency state can be represented explicitly.
-- **Safe integration boundary.** GitHub access is read-only, bounded, and isolated from the side-effect-free evaluation core.
+- **Deterministic by default.** Local evaluation needs no API key, model, database, or network connection.
+- **Honest uncertainty.** Missing semantic coverage, permission failures, rate limits, and partial input never masquerade as missing requirements.
+- **Repository-aware.** Policies, Issue Forms, task types, fields, relationships, and dependency state have explicit representations.
+- **Safe integration boundary.** GitHub access is read-only and bounded; the evaluation core remains side-effect free.
 
-## Status
+## Interpreting results
 
-IssueReady is in early alpha. The contracts and test suite are usable from source, but the workspace packages are not published to npm and compatibility may change before the first release.
+Deterministic evidence can prove facts such as an empty required field, multiple
+independent goals, navigation hints, references, or snapshot truncation. Criteria
+that require semantic judgment remain `UNKNOWN` unless a profile-locked semantic
+adapter supplies evidence. In that case IssueReady reports a degraded evaluation
+instead of manufacturing a `READY` or `NEEDS_INFO` verdict.
 
-## Quick start
+This distinction is intentional: an incomplete analysis is not evidence that an
+issue is incomplete.
 
-Requirements:
-
-- Node.js 24
-- Corepack
-
-```bash
-git clone https://github.com/whyiug/issueready.git
-cd issueready
-corepack enable
-corepack pnpm install --frozen-lockfile
-corepack pnpm example
-```
-
-The example evaluates [a local issue](examples/sample-issue.md) and prints a Markdown report. It performs no network request and needs no credentials.
-
-Run every quality gate with:
-
-```bash
-corepack pnpm validate
-```
+For the design rationale and relationship to AI issue intake, read
+[Why issue readiness is not one score](docs/why-readiness-is-not-a-score.md).
 
 ## Core API
 
-The supported evaluation flow is intentionally small:
+The source workspace also exposes a small evaluation facade for adapters and
+applications:
 
 ```ts
 import {
@@ -67,27 +112,39 @@ const markdown = renderReport(report, "markdown", {
 });
 ```
 
-Callers own source acquisition and pass immutable assets into the core. See the [core API guide](docs/concepts/core-api.md) and the runnable [local example](examples/evaluate-local-issue.mjs) for complete inputs.
+The internal workspace packages are not independently published in the alpha
+release. See the [core API guide](docs/concepts/core-api.md) and runnable
+[source example](examples/evaluate-local-issue.mjs) for complete inputs.
 
-## Repository layout
+## Develop from source
 
-| Path        | Purpose                                                                                     |
-| ----------- | ------------------------------------------------------------------------------------------- |
-| `packages/` | Focused ESM packages for domain, policy, rules, reports, GitHub, and the public core facade |
-| `schemas/`  | Versioned JSON Schema wire contracts                                                        |
-| `rules/`    | Versioned rule manifests and task packs                                                     |
-| `fixtures/` | Synthetic, reproducible compatibility and regression fixtures                               |
-| `examples/` | Runnable local examples                                                                     |
-| `docs/`     | Architecture, API, and adapter documentation                                                |
-| `mutation/` | Mutation-test configuration and reviewed evidence                                           |
+```bash
+git clone https://github.com/whyiug/issueready.git
+cd issueready
+corepack enable
+corepack pnpm install --frozen-lockfile
+corepack pnpm validate
+```
 
-Start with the [documentation index](docs/README.md) for the architecture and package boundaries.
+The workspace contains focused ESM packages under `packages/`, versioned JSON
+Schemas under `schemas/`, rule manifests under `rules/`, synthetic fixtures,
+examples, documentation, and reviewed mutation evidence. Start with the
+[documentation index](docs/README.md) and [architecture](docs/architecture.md).
+
+## Status
+
+`v0.1.0` is an alpha release. The CLI and wire contracts are usable, but command
+and schema compatibility may change before `v1.0.0`. Production automation
+should pin an exact version.
 
 ## Security and privacy
 
-IssueReady does not require issue content to leave the local process. Evidence quotes are omitted by default, credential-shaped values are redacted, and the GitHub transport accepts credentials only at the final HTTP boundary.
+IssueReady does not require local issue content to leave the process. Evidence
+quotes are omitted by default, credential-shaped values are redacted, and
+GitHub credentials are added only at the final request boundary.
 
-Please report vulnerabilities privately according to the [security policy](SECURITY.md). Do not include secrets, private issue content, or tests against public deployments.
+Report vulnerabilities privately according to [SECURITY.md](SECURITY.md). Do
+not include secrets, private issue content, or tests against public deployments.
 
 ## Community
 

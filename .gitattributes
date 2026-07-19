@@ -1,9 +1,12 @@
 * text=auto eol=lf
 
 *.golden text eol=lf
+*.gif binary
 *.json text eol=lf
 *.md text eol=lf
 *.mjs text eol=lf
+*.png binary
+*.svg text eol=lf
 *.ts text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf

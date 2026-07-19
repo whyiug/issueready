@@ -3,7 +3,7 @@
 IssueReady separates source acquisition, deterministic evaluation, and presentation so uncertainty and side effects cannot leak into readiness decisions.
 
 ```text
-local file or GitHub read adapter
+CLI, local file, or GitHub read adapter
               │
               ▼
         normalization ──► immutable snapshot
@@ -35,6 +35,7 @@ local file or GitHub read adapter
 | `@issueready/core`      | Small supported facade over the deterministic evaluation flow  |
 | `@issueready/github`    | Bounded, read-only GitHub transport, decoding, and consistency |
 | `@issueready/testkit`   | Fixture and golden-file helpers used only by tests             |
+| `issueready`            | Bundled CLI, source acquisition, and terminal presentation     |
 
 Dependencies point toward contracts and pure computation. The core package does not import HTTP clients, provider SDKs, databases, terminal libraries, child processes, or credential sources.
 

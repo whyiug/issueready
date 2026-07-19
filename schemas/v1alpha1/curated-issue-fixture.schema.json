@@ -92,7 +92,7 @@
               "items": {
                 "enum": [
                   "behavior-regression",
-                  "future-publication-subject-to-project-license"
+                  "public-distribution-under-project-license"
                 ]
               }
             }
@@ -109,7 +109,7 @@
           },
           "additionalProperties": false
         },
-        "annotationLicense": { "const": "project-license-pending" },
+        "annotationLicense": { "const": "MIT" },
         "consent": {
           "type": "object",
           "required": ["required", "status", "scope"],
@@ -135,7 +135,9 @@
           "required": ["method", "contact", "slaDays"],
           "properties": {
             "method": { "const": "remove-from-future-revisions" },
-            "contact": { "const": "private-repository-maintainer" },
+            "contact": {
+              "const": "https://github.com/whyiug/issueready/issues"
+            },
             "slaDays": { "type": "null" }
           },
           "additionalProperties": false

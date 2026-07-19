@@ -1,0 +1,48 @@
+{
+  "name": "issueready",
+  "version": "0.1.0",
+  "description": "Evidence-backed readiness checks for GitHub issues and local issue drafts.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whyiug/issueready.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/whyiug/issueready#readme",
+  "bugs": {
+    "url": "https://github.com/whyiug/issueready/issues"
+  },
+  "keywords": [
+    "ai-agents",
+    "cli",
+    "github",
+    "issue-triage",
+    "local-first",
+    "readiness"
+  ],
+  "type": "module",
+  "bin": {
+    "issueready": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node ../../scripts/build-cli.mjs",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@issueready/core": "workspace:*",
+    "@issueready/domain": "workspace:*",
+    "@issueready/rules": "workspace:*",
+    "@issueready/schema": "workspace:*"
+  }
+}

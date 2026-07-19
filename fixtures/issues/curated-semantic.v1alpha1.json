@@ -20,7 +20,7 @@
       "grantedBy": "IssueReady project",
       "scope": [
         "behavior-regression",
-        "future-publication-subject-to-project-license"
+        "public-distribution-under-project-license"
       ]
     },
     "apiTerms": {
@@ -28,7 +28,7 @@
       "reviewedAt": null,
       "policyDigest": null
     },
-    "annotationLicense": "project-license-pending",
+    "annotationLicense": "MIT",
     "consent": {
       "required": false,
       "status": "not-applicable-synthetic",
@@ -41,7 +41,7 @@
     },
     "deletion": {
       "method": "remove-from-future-revisions",
-      "contact": "private-repository-maintainer",
+      "contact": "https://github.com/whyiug/issueready/issues",
       "slaDays": null
     },
     "provenance": {

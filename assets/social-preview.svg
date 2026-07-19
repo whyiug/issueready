@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">IssueReady</title>
+  <desc id="description">Evidence-backed readiness checks before implementation starts.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090d1a" />
+      <stop offset="0.55" stop-color="#11172b" />
+      <stop offset="1" stop-color="#171333" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ee7d8" />
+      <stop offset="1" stop-color="#9d8cff" />
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity="0.035" />
+    </pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="28" />
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="24" fill="url(#background)" />
+  <rect width="1280" height="640" rx="24" fill="url(#grid)" />
+  <circle cx="1090" cy="90" r="190" fill="#7c63ff" opacity="0.16" filter="url(#glow)" />
+  <circle cx="1060" cy="560" r="180" fill="#35d5c4" opacity="0.11" filter="url(#glow)" />
+
+  <g transform="translate(76 70)">
+    <rect width="72" height="72" rx="20" fill="url(#accent)" />
+    <path d="M22 21h28M22 36h20M22 51h28" fill="none" stroke="#0a1020" stroke-width="7" stroke-linecap="round" />
+    <circle cx="51" cy="36" r="6" fill="#0a1020" />
+  </g>
+
+  <text x="172" y="125" fill="#f7f8ff" font-family="DejaVu Sans, Arial, sans-serif" font-size="58" font-weight="760" letter-spacing="-2">IssueReady</text>
+  <text x="76" y="218" fill="#f7f8ff" font-family="DejaVu Sans, Arial, sans-serif" font-size="46" font-weight="680" letter-spacing="-1.4">Know when an issue is ready to build.</text>
+  <text x="76" y="267" fill="#aeb7d3" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="450">Local-first, deterministic, and backed by traceable evidence.</text>
+
+  <g transform="translate(76 331)" font-family="DejaVu Sans, Arial, sans-serif">
+    <g>
+      <rect width="340" height="154" rx="18" fill="#11182c" stroke="#34405f" />
+      <text x="24" y="42" fill="#8e9bbb" font-size="16" font-weight="700" letter-spacing="1.8">EVALUATION</text>
+      <circle cx="28" cy="101" r="9" fill="#6ee7d8" />
+      <text x="50" y="111" fill="#f7f8ff" font-size="31" font-weight="700">COMPLETE</text>
+    </g>
+    <g transform="translate(364)">
+      <rect width="340" height="154" rx="18" fill="#11182c" stroke="#34405f" />
+      <text x="24" y="42" fill="#8e9bbb" font-size="16" font-weight="700" letter-spacing="1.8">SPECIFICATION</text>
+      <circle cx="28" cy="101" r="9" fill="#9d8cff" />
+      <text x="50" y="111" fill="#f7f8ff" font-size="31" font-weight="700">READY</text>
+    </g>
+    <g transform="translate(728)">
+      <rect width="340" height="154" rx="18" fill="#11182c" stroke="#34405f" />
+      <text x="24" y="42" fill="#8e9bbb" font-size="16" font-weight="700" letter-spacing="1.8">DELEGATION</text>
+      <circle cx="28" cy="101" r="9" fill="#f8c96b" />
+      <text x="50" y="111" fill="#f7f8ff" font-size="31" font-weight="700">CANDIDATE</text>
+    </g>
+  </g>
+
+  <g transform="translate(76 545)" font-family="DejaVu Sans, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.2">
+    <rect width="146" height="38" rx="19" fill="#17283a" stroke="#285d64" />
+    <text x="22" y="25" fill="#8df0e3">LOCAL-FIRST</text>
+    <rect x="162" width="174" height="38" rx="19" fill="#211d3e" stroke="#51468d" />
+    <text x="184" y="25" fill="#b9adff">DETERMINISTIC</text>
+    <rect x="352" width="190" height="38" rx="19" fill="#31281b" stroke="#715a2f" />
+    <text x="374" y="25" fill="#f7d995">EVIDENCE-BACKED</text>
+  </g>
+
+  <text x="1204" y="576" text-anchor="end" fill="#7783a2" font-family="DejaVu Sans Mono, monospace" font-size="18">github.com/whyiug/issueready</text>
+</svg>
