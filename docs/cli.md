@@ -3,6 +3,15 @@
 The `issueready` CLI evaluates local Markdown drafts and GitHub issues without
 writing to GitHub or executing coding agents.
 
+## Install
+
+The current alpha is available from its versioned GitHub release:
+
+```bash
+npm install --global https://github.com/whyiug/issueready/releases/download/v0.1.0/issueready-0.1.0.tgz
+issueready --version
+```
+
 ## Commands
 
 ```text
@@ -30,7 +39,7 @@ the issue title; if none is present, the title is `Local issue`. Local evaluatio
 performs no network request.
 
 ```bash
-npx issueready ./proposal.md --format markdown
+issueready ./proposal.md --format markdown
 ```
 
 ## GitHub input
