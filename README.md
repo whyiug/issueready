@@ -22,8 +22,9 @@ separate:
 Requirements: Node.js 24 and npm 11 or later.
 
 ```bash
-npx issueready demo ready
-npx issueready demo needs-info
+npm install --global https://github.com/whyiug/issueready/releases/download/v0.1.0/issueready-0.1.0.tgz
+issueready demo ready
+issueready demo needs-info
 ```
 
 ![IssueReady terminal demonstration](assets/terminal-demo.gif)
@@ -37,14 +38,14 @@ model or network service.
 Evaluate a local Markdown draft:
 
 ```bash
-npx issueready path/to/issue.md
+issueready path/to/issue.md
 ```
 
 Evaluate a public GitHub issue by URL or shorthand:
 
 ```bash
-npx issueready https://github.com/owner/repository/issues/123
-npx issueready owner/repository#123
+issueready https://github.com/owner/repository/issues/123
+issueready owner/repository#123
 ```
 
 Public issues work anonymously. For private issues or higher GitHub API rate
