@@ -1,3 +1,6 @@
+import { mkdtemp, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { describe, expect, it, vi } from "vitest";
@@ -59,6 +62,23 @@ describe("IssueReady CLI", () => {
     expect(renderSummary(needsInfo)).toContain(
       "Other failed checks: IR-CTX-001",
     );
+  });
+
+  it("loads rule assets independently of the process working directory", async () => {
+    const originalCwd = process.cwd();
+    const unrelatedCwd = await mkdtemp(join(tmpdir(), "issueready-cwd-"));
+    try {
+      process.chdir(unrelatedCwd);
+      const evaluation = await evaluateDemo("ready");
+      expect(evaluation.report).toMatchObject({
+        evaluationStatus: "COMPLETE",
+        specVerdict: "READY",
+        delegationDisposition: "CANDIDATE",
+      });
+    } finally {
+      process.chdir(originalCwd);
+      await rm(unrelatedCwd, { recursive: true, force: true });
+    }
   });
 
   it("evaluates a local Markdown issue without inventing semantic coverage", async () => {

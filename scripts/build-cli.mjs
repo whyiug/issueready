@@ -23,7 +23,7 @@ await build({
   outfile: resolve(outputDirectory, "cli.js"),
   bundle: true,
   platform: "node",
-  target: "node24",
+  target: "node22.12",
   format: "esm",
   sourcemap: true,
   legalComments: "external",

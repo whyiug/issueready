@@ -1,6 +1,6 @@
 {
   "name": "issueready",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Evidence-backed readiness checks for GitHub issues and local issue drafts.",
   "license": "MIT",
   "repository": {
@@ -30,7 +30,7 @@
     "README.md"
   ],
   "engines": {
-    "node": ">=24 <25"
+    "node": ">=22.12"
   },
   "publishConfig": {
     "access": "public"

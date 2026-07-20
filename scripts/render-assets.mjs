@@ -71,10 +71,10 @@ await writeOrCheck(
 
 const frames = [
   ["$ npx issueready demo ready"],
-  ["$ npx issueready demo ready", "IssueReady 0.1.0", "Task:          bug"],
+  ["$ npx issueready demo ready", "IssueReady 0.1.1", "Task:          bug"],
   [
     "$ npx issueready demo ready",
-    "IssueReady 0.1.0",
+    "IssueReady 0.1.1",
     "Task:          bug",
     "Evaluation:    COMPLETE",
     "Specification: READY",
@@ -85,7 +85,7 @@ const frames = [
   ["$ npx issueready demo needs-info"],
   [
     "$ npx issueready demo needs-info",
-    "IssueReady 0.1.0",
+    "IssueReady 0.1.1",
     "Task:          feature",
     "Evaluation:    COMPLETE",
     "Specification: NEEDS_INFO",
@@ -93,7 +93,7 @@ const frames = [
   ],
   [
     "$ npx issueready demo needs-info",
-    "IssueReady 0.1.0",
+    "IssueReady 0.1.1",
     "Task:          feature",
     "Evaluation:    COMPLETE",
     "Specification: NEEDS_INFO",

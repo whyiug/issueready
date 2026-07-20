@@ -5,7 +5,7 @@
 [![CI](https://github.com/whyiug/issueready/actions/workflows/ci.yml/badge.svg)](https://github.com/whyiug/issueready/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/issueready.svg)](https://www.npmjs.com/package/issueready)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Node.js 24](https://img.shields.io/badge/Node.js-24-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Node.js 22.12+](https://img.shields.io/badge/Node.js-22.12%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
 IssueReady tells you whether a GitHub issue is ready for a human or coding
 agent—locally, deterministically, and with traceable evidence. It never executes
@@ -20,7 +20,7 @@ separate:
 
 ## Try it
 
-Requirements: Node.js 24 and npm 11 or later.
+Requirements: Node.js 22.12 or later and npm 10.9 or later.
 
 ```bash
 npx issueready demo ready
@@ -55,7 +55,7 @@ command arguments, persisted, or included in reports.
 The default output is a compact terminal summary:
 
 ```text
-IssueReady 0.1.0
+IssueReady 0.1.1
 Task:          bug
 Evaluation:    COMPLETE
 Specification: READY
@@ -134,7 +134,7 @@ examples, documentation, and reviewed mutation evidence. Start with the
 
 ## Status
 
-`v0.1.0` is an alpha release. The CLI and wire contracts are usable, but command
+`v0.1.1` is an alpha release. The CLI and wire contracts are usable, but command
 and schema compatibility may change before `v1.0.0`. Production automation
 should pin an exact version.
 
