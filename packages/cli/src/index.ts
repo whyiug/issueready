@@ -1,5 +1,5 @@
 import { access, readFile, readdir, stat } from "node:fs/promises";
-import { relative, resolve } from "node:path";
+import { join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
@@ -26,7 +26,7 @@ import type {
   TaskPackManifestV1Alpha1,
 } from "@issueready/schema";
 
-export const CLI_VERSION = "0.1.0";
+export const CLI_VERSION = "0.1.1";
 const GITHUB_API_VERSION = "2022-11-28";
 const MAX_ISSUE_BYTES = 131_072;
 const MAX_GITHUB_RESPONSE_BYTES = 1_048_576;
@@ -115,7 +115,7 @@ async function readJsonDirectory<Value>(
     .filter((name) => name.endsWith(".json"))
     .sort();
   return Promise.all(
-    files.map((name) => readJson<Value>(root, resolve(path, name))),
+    files.map((name) => readJson<Value>(root, join(path, name))),
   );
 }
 

@@ -4,6 +4,8 @@ IssueReady checks whether a GitHub issue or local Markdown draft is ready for
 implementation. It keeps evaluation completeness, specification readiness, and
 delegation policy separate and reports the evidence behind each result.
 
+Requires Node.js 22.12 or later.
+
 ```bash
 npx issueready demo ready
 npx issueready path/to/issue.md

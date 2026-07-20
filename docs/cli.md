@@ -8,8 +8,10 @@ writing to GitHub or executing coding agents.
 The current alpha is published on npm and mirrored in the versioned GitHub
 release:
 
+Node.js 22.12 or later is required.
+
 ```bash
-npm install --global issueready@0.1.0
+npm install --global issueready@0.1.1
 issueready --version
 ```
 
@@ -61,7 +63,7 @@ association. It does not fetch comments, linked documents, or repository source.
 ## Semantic coverage
 
 The CLI runs deterministic checks for arbitrary inputs. Semantic criteria remain
-unknown because `v0.1.0` does not bundle a model provider or send issue content
+unknown because `v0.1.1` does not bundle a model provider or send issue content
 to an external service. Consequently, an arbitrary input may have an
 `INDETERMINATE` specification verdict even when deterministic findings are useful.
 
