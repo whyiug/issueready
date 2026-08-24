@@ -59,13 +59,13 @@
     "@resvg/resvg-js": "2.6.2",
     "@stryker-mutator/core": "9.6.1",
     "@types/node": "24.13.3",
-    "esbuild": "0.28.1",
+    "esbuild": "0.28.2",
     "fast-check": "4.9.0",
     "gifenc": "1.0.3",
     "json-schema-to-typescript": "15.0.4",
-    "oxlint": "1.74.0",
-    "prettier": "3.9.5",
+    "oxlint": "1.79.0",
+    "prettier": "3.9.6",
     "typescript": "7.0.2",
-    "vitest": "4.1.10"
+    "vitest": "4.1.11"
   }
 }
