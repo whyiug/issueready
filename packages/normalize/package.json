@@ -30,7 +30,7 @@
   "dependencies": {
     "@issueready/domain": "workspace:*",
     "mdast-util-from-markdown": "2.0.3",
-    "yaml": "2.9.0"
+    "yaml": "2.9.1"
   },
   "devDependencies": {
     "ajv": "catalog:"
