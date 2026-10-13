@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@issueready/domain": "workspace:*",
-    "mdast-util-from-markdown": "2.0.3",
+    "mdast-util-from-markdown": "2.1.0",
     "yaml": "2.9.0"
   },
   "devDependencies": {
